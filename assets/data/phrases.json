@@ -1,0 +1,206 @@
+[
+    {
+        "phraseId": "P1",
+        "category": "Greetings",
+        "description": "Standard respectful greeting used for everyone",
+        "translations": {
+            "English": "How are you?",
+            "Bemba": "Muli shani?",
+            "Nyanja": "Muli bwanji?",
+            "Tonga": "Mwapona buti?"
+        },
+        "pronunciation": {
+            "English": "how are you",
+            "Bemba": "moo-lee shah-nee",
+            "Nyanja": "moo-lee bwa-ndeji",
+            "Tonga": "mwah-poh-nah boo-tee"
+        }
+    },
+    {
+        "phraseId": "P2",
+        "category": "Greetings",
+        "description": "Simple greeting for hello",
+        "translations": {
+            "English": "Hello",
+            "Bemba": "Shani",
+            "Nyanja": "Moni",
+            "Tonga": "Mwabuka buti"
+        },
+        "pronunciation": {
+            "English": "hello",
+            "Bemba": "shah-nee",
+            "Nyanja": "moh-nee",
+            "Tonga": "mwah-boo-kah boo-tee"
+        }
+    },
+    {
+        "phraseId": "P3",
+        "category": "Greetings",
+        "description": "Farewell greeting",
+        "translations": {
+            "English": "Goodbye",
+            "Bemba": "Shalapo",
+            "Nyanja": "Pitani bwino",
+            "Tonga": "Mweende kabotu"
+        },
+        "pronunciation": {
+            "English": "goodbye",
+            "Bemba": "shah-lah-poh",
+            "Nyanja": "pee-tah-nee bwee-noh",
+            "Tonga": "mweh-en-deh kah-boh-too"
+        }
+    },
+    {
+        "phraseId": "P4",
+        "category": "Travel",
+        "description": "Asking for directions",
+        "translations": {
+            "English": "Where is the bus stop?",
+            "Bemba": "Bus stop kuli kwi?",
+            "Nyanja": "Bus stop ili kuti?",
+            "Tonga": "Bus stop ili kuli?"
+        },
+        "pronunciation": {
+            "English": "where is the bus stop",
+            "Bemba": "bus stop koo-lee kwee",
+            "Nyanja": "bus stop ee-lee koo-tee",
+            "Tonga": "bus stop ee-lee koo-lee"
+        }
+    },
+    {
+        "phraseId": "P5",
+        "category": "Travel",
+        "description": "Asking how far a place is",
+        "translations": {
+            "English": "How far is it?",
+            "Bemba": "Kuli kutali shani?",
+            "Nyanja": "Ndi kutali bwanji?",
+            "Tonga": "Nkulamfu buti?"
+        },
+        "pronunciation": {
+            "English": "how far is it",
+            "Bemba": "koo-lee koo-tah-lee shah-nee",
+            "Nyanja": "ndee koo-tah-lee bwahn-jee",
+            "Tonga": "nkoo-lahm-foo boo-tee"
+        }
+    },
+    {
+        "phraseId": "P6",
+        "category": "Travel",
+        "description": "Requesting a stop",
+        "translations": {
+            "English": "Please stop here",
+            "Bemba": "Mwaiminina apa",
+            "Nyanja": "Imani apa chonde",
+            "Tonga": "Amwiime aano"
+        },
+        "pronunciation": {
+            "English": "please stop here",
+            "Bemba": "mwah-ee-mee-nee-nah ah-pah",
+            "Nyanja": "ee-mah-nee ah-pah chon-deh",
+            "Tonga": "ahm-wee-meh ah-no"
+        }
+    },
+    {
+        "phraseId": "P7",
+        "category": "Shopping",
+        "description": "Asking the price of an item",
+        "translations": {
+            "English": "How much is this?",
+            "Bemba": "Ni ndalama shinga ici?",
+            "Nyanja": "Ndalama zingati izi?",
+            "Tonga": "Ninzi mali aayu?"
+        },
+        "pronunciation": {
+            "English": "how much is this",
+            "Bemba": "nee ndah-lah-mah sheen-gah ee-chee",
+            "Nyanja": "ndah-lah-mah zeen-gah-tee ee-zee",
+            "Tonga": "neen-zee mah-lee ah-yoo"
+        }
+    },
+    {
+        "phraseId": "P8",
+        "category": "Shopping",
+        "description": "Negotiating price",
+        "translations": {
+            "English": "Can you reduce the price?",
+            "Bemba": "Mulacefyako indalama?",
+            "Nyanja": "Mungachotseko ndalama?",
+            "Tonga": "Ulakonzya kucesya mali?"
+        },
+        "pronunciation": {
+            "English": "can you reduce the price",
+            "Bemba": "moo-lah-cheh-fyah-koh een-dah-lah-mah",
+            "Nyanja": "moon-gah-choht-seh-koh ndah-lah-mah",
+            "Tonga": "oo-lah-kon-zyah koo-cheh-syah mah-lee"
+        }
+    },
+    {
+        "phraseId": "P9",
+        "category": "Shopping",
+        "description": "Basic purchase confirmation",
+        "translations": {
+            "English": "I will buy this",
+            "Bemba": "Nkalashita ici",
+            "Nyanja": "Ndigula izi",
+            "Tonga": "Ndilaula eezi"
+        },
+        "pronunciation": {
+            "English": "i will buy this",
+            "Bemba": "nkah-lah-shee-tah ee-chee",
+            "Nyanja": "ndee-goo-lah ee-zee",
+            "Tonga": "ndee-lah-oo-lah eh-zee"
+        }
+    },
+    {
+        "phraseId": "P10",
+        "category": "Social",
+        "description": "Asking someone's name",
+        "translations": {
+            "English": "What is your name?",
+            "Bemba": "Nishani ishina lyenu?",
+            "Nyanja": "Dzina lanu ndani?",
+            "Tonga": "Nduweni izina lyako?"
+        },
+        "pronunciation": {
+            "English": "what is your name",
+            "Bemba": "nee-shah-nee ee-shee-nah lyeh-noo",
+            "Nyanja": "dzee-nah lah-noo ndah-nee",
+            "Tonga": "ndoo-weh-nee ee-zee-nah lyah-koh"
+        }
+    },
+    {
+        "phraseId": "P11",
+        "category": "Social",
+        "description": "Expressing thanks",
+        "translations": {
+            "English": "Thank you",
+            "Bemba": "Natotela",
+            "Nyanja": "Zikomo",
+            "Tonga": "Twalumba"
+        },
+        "pronunciation": {
+            "English": "thank you",
+            "Bemba": "nah-toh-teh-lah",
+            "Nyanja": "zee-koh-moh",
+            "Tonga": "twah-loom-bah"
+        }
+    },
+    {
+        "phraseId": "P12",
+        "category": "Social",
+        "description": "Introducing yourself",
+        "translations": {
+            "English": "My name is...",
+            "Bemba": "Ishina lyandi ni...",
+            "Nyanja": "Dzina langa ndine...",
+            "Tonga": "Izina lyangu ndime..."
+        },
+        "pronunciation": {
+            "English": "my name is",
+            "Bemba": "ee-shee-nah lyahn-dee nee",
+            "Nyanja": "dzee-nah lahn-gah ndee-neh",
+            "Tonga": "ee-zee-nah lyahn-goo ndee-meh"
+        }
+    }
+]
