@@ -19,6 +19,10 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkGreen,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(categoryName),
       ),
       body: Container(

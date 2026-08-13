@@ -132,11 +132,41 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
     return _isLastQuestion ? 'SEE RESULTS' : 'NEXT';
   }
 
+  void _handleBack() {
+    final rootContext = context;
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Text('Leave quiz?'),
+          content: const Text("Leave quiz? Your progress on this attempt won't be saved."),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(dialogContext);
+                Navigator.pop(rootContext);
+              },
+              child: const Text('Leave'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: _darkGreen,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: _handleBack,
+        ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [

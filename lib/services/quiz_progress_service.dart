@@ -1,6 +1,8 @@
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'auth_service.dart';
+
 class QuizProgressService {
   static const String _boxName = 'quizProgress';
   static late final Box<dynamic> _box;
@@ -11,6 +13,7 @@ class QuizProgressService {
     _box = await Hive.openBox<dynamic>(_boxName);
   }
 
+  // Data is scoped per local username since this is a local-only, single-device auth system (no server-side user separation).
   static Future<void> saveAttempt({
     required String category,
     required String level,
@@ -18,6 +21,7 @@ class QuizProgressService {
     required int total,
   }) async {
     final attempt = {
+      'username': AuthService.getCurrentUser(),
       'category': category,
       'level': level,
       'score': score,
@@ -27,17 +31,22 @@ class QuizProgressService {
     await _box.add(attempt);
   }
 
+  // Data is scoped per local username since this is a local-only, single-device auth system (no server-side user separation).
   static List<Map<String, dynamic>> getAllAttempts() {
+    final currentUser = AuthService.getCurrentUser();
+    if (currentUser == null) return const [];
+
     final attempts = _box.values.map((entry) {
       if (entry is Map) {
         return Map<String, dynamic>.from(entry.cast<String, dynamic>());
       }
       return <String, dynamic>{};
-    }).where((attempt) => attempt.isNotEmpty).toList();
+    }).where((attempt) => attempt.isNotEmpty && (attempt['username'] as String? ?? '') == currentUser).toList();
 
     return attempts.reversed.toList();
   }
 
+  // Data is scoped per local username since this is a local-only, single-device auth system (no server-side user separation).
   static double getAverageScorePercent() {
     final attempts = getAllAttempts();
     if (attempts.isEmpty) return 0.0;
@@ -51,6 +60,7 @@ class QuizProgressService {
     return totalPercent / attempts.length;
   }
 
+  // Data is scoped per local username since this is a local-only, single-device auth system (no server-side user separation).
   static int getBestScorePercent() {
     final attempts = getAllAttempts();
     if (attempts.isEmpty) return 0;

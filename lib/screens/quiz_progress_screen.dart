@@ -44,6 +44,10 @@ class _QuizProgressScreenState extends State<QuizProgressScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: _darkGreen,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: const Text('Your Progress', style: TextStyle(fontWeight: FontWeight.bold)),
       ),
       body: SafeArea(

@@ -4,7 +4,6 @@ import '../services/phrasebook_service.dart';
 import '../services/quiz_service.dart';
 import 'quiz_progress_screen.dart';
 import 'quiz_question_screen.dart';
-import 'profile_screen.dart';
 
 class QuizSetupScreen extends StatefulWidget {
   const QuizSetupScreen({super.key});
@@ -126,12 +125,9 @@ class _QuizSetupScreenState extends State<QuizSetupScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: _darkGreen,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
-            child: CircleAvatar(backgroundColor: Colors.white24, child: const Icon(Icons.person, color: Colors.white)),
-          ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

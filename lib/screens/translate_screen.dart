@@ -5,7 +5,6 @@ import '../services/audio_service.dart';
 import '../services/favorites_service.dart';
 import '../services/phrasebook_service.dart';
 import 'phrasebook_screen.dart';
-import 'profile_screen.dart';
 
 class TranslateScreen extends StatefulWidget {
   const TranslateScreen({super.key});
@@ -145,12 +144,9 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
     return Scaffold(
       appBar: AppBar(
         backgroundColor: _darkGreen,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
-            child: CircleAvatar(backgroundColor: Colors.white24, child: const Icon(Icons.person, color: Colors.white)),
-          ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
