@@ -200,12 +200,12 @@ class _QuizSetupScreenState extends State<QuizSetupScreen> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: _buttonGreen,
-        foregroundColor: Colors.black,
+        foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(vertical: 18.0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
       ),
       onPressed: onPressed,
-      child: Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+      child: Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white)),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import '../models/phrase.dart';
 import '../models/quiz_question.dart';
+import 'language_preference_service.dart';
 import 'phrasebook_service.dart';
 
 class QuizService {
@@ -93,15 +94,16 @@ class QuizService {
   }
 
   QuizQuestion _buildFreeRecallQuestion(Phrase phrase) {
-    final correctAnswer = phrase.translations['Bemba'] ?? '';
+    final selectedLanguage = LanguagePreferenceService.getLanguage();
+    final correctAnswer = phrase.translations[selectedLanguage] ?? '';
 
     return QuizQuestion(
       phraseId: phrase.phraseId,
       type: QuestionType.freeRecall,
-      questionText: "How do you say '${phrase.translations['English'] ?? ''}' in Bemba?",
+      questionText: "How do you say '${phrase.translations['English'] ?? ''}' in $selectedLanguage?",
       options: null,
       correctAnswer: correctAnswer,
-      hint: phrase.pronunciation['Bemba'],
+      hint: phrase.pronunciation[selectedLanguage],
     );
   }
 }

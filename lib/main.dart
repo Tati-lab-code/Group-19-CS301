@@ -9,12 +9,14 @@ import 'screens/welcome_screen.dart';
 import 'services/favorites_service.dart';
 import 'services/quiz_progress_service.dart';
 import 'services/auth_service.dart';
+import 'services/language_preference_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FavoritesService.init();
   await AuthService.init();
   await QuizProgressService.init();
+  await LanguagePreferenceService.init();
   runApp(const MyApp());
 }
 

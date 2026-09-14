@@ -79,7 +79,7 @@ class ProfileScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(current.toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
-                  Text('Active member · $email', style: TextStyle(color: Colors.green.shade100)),
+                  Text('Active member · $email', style: TextStyle(color: Colors.white)),
                   const SizedBox(height: 20),
                   Row(
                     children: [
@@ -99,8 +99,10 @@ class ProfileScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    title: const Text('My Profile Overview', style: TextStyle(fontWeight: FontWeight.bold)),
+                    title: const Text('My Profile Overview', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black87)),
                     tileColor: Colors.white,
+                    textColor: Colors.black87,
+                    iconColor: Colors.black87,
                     onTap: () {
                       // TODO: Implement Profile Overview
                     },
@@ -143,7 +145,7 @@ class ProfileScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 12.0),
       child: Column(
         children: [
-          Text(number, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green)),
+          Text(number, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
           const SizedBox(height: 6),
           Text(label, style: const TextStyle(color: Colors.black54)),
         ],

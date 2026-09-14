@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/phrase.dart';
+import '../services/language_preference_service.dart';
 import '../services/phrasebook_service.dart';
 import '../widgets/app_bottom_nav.dart';
 import '../widgets/phrase_card.dart';
@@ -86,11 +87,12 @@ class _SearchScreenState extends State<SearchScreen> {
                 if (_loading) return const Center(child: CircularProgressIndicator());
                 if (_results.isEmpty) return const Center(child: Text('No results found.'));
 
+                final selectedLanguage = LanguagePreferenceService.getLanguage();
                 return ListView.separated(
                   itemCount: _results.length,
                   separatorBuilder: (context, index) => const SizedBox(height: 8),
                   itemBuilder: (context, index) {
-                    return PhraseCard(phrase: _results[index], language: 'Bemba');
+                    return PhraseCard(phrase: _results[index], language: selectedLanguage);
                   },
                 );
               }),

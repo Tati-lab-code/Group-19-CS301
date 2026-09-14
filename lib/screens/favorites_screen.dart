@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/phrase.dart';
 import '../services/phrasebook_service.dart';
 import '../services/favorites_service.dart';
+import '../services/language_preference_service.dart';
 import '../widgets/app_bottom_nav.dart';
 import '../services/auth_service.dart';
 import 'profile_screen.dart';
@@ -53,11 +54,12 @@ class FavoritesScreen extends StatelessWidget {
               );
             }
 
+            final selectedLanguage = LanguagePreferenceService.getLanguage();
             return ListView.separated(
               itemCount: favorites.length,
               separatorBuilder: (context, index) => const SizedBox(height: 8),
               itemBuilder: (context, index) {
-                return PhraseCard(phrase: favorites[index], language: 'Bemba');
+                return PhraseCard(phrase: favorites[index], language: selectedLanguage);
               },
             );
           },

@@ -6,13 +6,13 @@
         "translations": {
             "English": "How are you?",
             "Bemba": "Muli shani?",
-            "Nyanja": "Muli bwanji?",
+            "Nyanja": "Muli bwaa nji?",
             "Tonga": "Mwapona buti?"
         },
         "pronunciation": {
             "English": "how are you",
             "Bemba": "mu-li shaa-ni",
-            "Nyanja": "moo-lee bwa-ndeji",
+            "Nyanja": "moo-lee boo-ahn-jee",
             "Tonga": "mwah-poh-nah boo-tee"
         }
     },
@@ -23,14 +23,14 @@
         "translations": {
             "English": "Hello",
             "Bemba": "Shani",
-            "Nyanja": "Moni",
-            "Tonga": "Mwabuka buti"
+            "Nyanja": "Bwanji",
+            "Tonga": "Muli buti"
         },
         "pronunciation": {
             "English": "hello",
             "Bemba": "shaa-ni",
-            "Nyanja": "moh-nee",
-            "Tonga": "mwah-boo-kah boo-tee"
+            "Nyanja": "boo-ahn-jee",
+            "Tonga": "Moo-lee boo-tee"
         }
     },
     {
@@ -40,13 +40,13 @@
         "translations": {
             "English": "Goodbye",
             "Bemba": "Shalapo",
-            "Nyanja": "Pitani bwino",
+            "Nyanja": "Muyende bwino",
             "Tonga": "Mweende kabotu"
         },
         "pronunciation": {
             "English": "goodbye",
             "Bemba": "shaa-laa-po",
-            "Nyanja": "pee-tah-nee bwee-noh",
+            "Nyanja": "muu-yen-deh boo-ii-noh",
             "Tonga": "mweh-en-deh kah-boh-too"
         }
     },
@@ -74,14 +74,14 @@
         "translations": {
             "English": "How far is it?",
             "Bemba": "kutali shani?",
-            "Nyanja": "Ndi kutali bwanji?",
-            "Tonga": "Nkulamfu buti?"
+            "Nyanja": "Ni kutali bwanji?",
+            "Tonga": "Nkule buti?"
         },
         "pronunciation": {
             "English": "how far is it",
             "Bemba": "koo-tah-lee shah-ni",
-            "Nyanja": "ndee koo-tah-lee bwahn-jee",
-            "Tonga": "nkoo-lahm-foo boo-tee"
+            "Nyanja": "nii kuu-tah-lee bwahn-jee",
+            "Tonga": "nkee-leh boo-tee"
         }
     },
     {
@@ -91,14 +91,14 @@
         "translations": {
             "English": "Please stop here",
             "Bemba": "Lekeni apa",
-            "Nyanja": "Imani apa chonde",
+            "Nyanja": "Imani pamene apa",
             "Tonga": "Amwiime aano"
         },
         "pronunciation": {
             "English": "please stop here",
             "Bemba": "le-ke-ni ah-pah",
-            "Nyanja": "ee-mah-nee ah-pah chon-deh",
-            "Tonga": "ahm-wee-meh ah-no"
+            "Nyanja": "ee-mah-nii pah-meh-neh-apa",
+            "Tonga": "ah-mwee-meh ah-noh"
         }
     },
     {
@@ -108,14 +108,14 @@
         "translations": {
             "English": "How much is this?",
             "Bemba": "shinga ici?",
-            "Nyanja": "Ndalama zingati izi?",
-            "Tonga": "Ninzi mali aayu?"
+            "Nyanja": "Nii zingati ici?",
+            "Tonga": "Mali nzi eci?"
         },
         "pronunciation": {
             "English": "how much is this",
             "Bemba": "sheen-gah ee-chee",
-            "Nyanja": "ndah-lah-mah zeen-gah-tee ee-zee",
-            "Tonga": "neen-zee mah-lee ah-yoo"
+            "Nyanja": "nii zeen-gah-tee ee-chee",
+            "Tonga": "Mah-lee nzee eh-chee"
         }
     },
     {
@@ -125,14 +125,14 @@
         "translations": {
             "English": "Can you reduce the price?",
             "Bemba": "cefyeniko indalama?",
-            "Nyanja": "Mungachotseko ndalama?",
-            "Tonga": "Ulakonzya kucesya mali?"
+            "Nyanja": "Mungachoseko pang'ono?",
+            "Tonga": "Kocesya muulo?"
         },
         "pronunciation": {
             "English": "can you reduce the price",
             "Bemba": "che-fee-ye-ni-koh een-dah-lah-mah",
-            "Nyanja": "moon-gah-choht-seh-koh ndah-lah-mah",
-            "Tonga": "oo-lah-kon-zyah koo-cheh-syah mah-lee"
+            "Nyanja": "moon-gah-choh-seh-koh pa-ng'o-no",
+            "Tonga": "koh-cheh-syah moo-lo"
         }
     },
     {
@@ -142,13 +142,13 @@
         "translations": {
             "English": "I will buy this",
             "Bemba": "Nalashita ici",
-            "Nyanja": "Ndigula izi",
+            "Nyanja": "Niizagula ici",
             "Tonga": "Ndilaula eezi"
         },
         "pronunciation": {
             "English": "i will buy this",
             "Bemba": "nah-lah-shee-tah ee-chee",
-            "Nyanja": "ndee-goo-lah ee-zee",
+            "Nyanja": "nii-zah-guh-lah ee-chee",
             "Tonga": "ndee-lah-oo-lah eh-zee"
         }
     },
@@ -159,14 +159,14 @@
         "translations": {
             "English": "What is your name?",
             "Bemba": "Nishani ishina lyenu?",
-            "Nyanja": "Dzina lanu ndani?",
-            "Tonga": "Nduweni izina lyako?"
+            "Nyanja": "Ndiwe ndani zina?",
+            "Tonga": "Ndiweni zina?"
         },
         "pronunciation": {
             "English": "what is your name",
             "Bemba": "nee-shah-nee ee-shee-nah lee-yeh-nu",
-            "Nyanja": "dzee-nah lah-noo ndah-nee",
-            "Tonga": "ndoo-weh-nee ee-zee-nah lyah-koh"
+            "Nyanja": "ndee-weh ndah-nee zee-nah",
+            "Tonga": "ndee-weh-nee ee-zee-nah lyah-koh"
         }
     },
     {
@@ -193,13 +193,13 @@
         "translations": {
             "English": "My name is...",
             "Bemba": "Ishina lyandi ni...",
-            "Nyanja": "Dzina langa ndine...",
+            "Nyanja": "Dzina yanga ni...",
             "Tonga": "Izina lyangu ndime..."
         },
         "pronunciation": {
             "English": "my name is",
             "Bemba": "ee-shee-nah lian-dee ni",
-            "Nyanja": "dzee-nah lahn-gah ndee-neh",
+            "Nyanja": "zee-nah yahn-gah nii",
             "Tonga": "ee-zee-nah lyahn-goo ndee-meh"
         }
     }

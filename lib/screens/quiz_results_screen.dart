@@ -116,6 +116,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1B4D2E),
+                  foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                 ),
                 onPressed: () {
@@ -124,7 +125,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                     MaterialPageRoute(builder: (_) => const QuizSetupScreen()),
                   );
                 },
-                child: const Text('Try Again'),
+                child: const Text('Try Again', style: TextStyle(color: Colors.white)),
               ),
               const SizedBox(height: 12),
               OutlinedButton(
@@ -141,7 +142,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                     (route) => false,
                   );
                 },
-                child: const Text('Back to Home'),
+                child: const Text('Back to Home', style: TextStyle(color: Colors.black87)),
               ),
             ],
           ),

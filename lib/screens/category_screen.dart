@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/phrase.dart';
+import '../services/language_preference_service.dart';
 import '../services/phrasebook_service.dart';
 import '../widgets/phrase_card.dart';
 
@@ -39,12 +40,13 @@ class CategoryScreen extends StatelessWidget {
             }
 
             final phrases = snapshot.data ?? [];
+            final selectedLanguage = LanguagePreferenceService.getLanguage();
             return ListView.separated(
               itemCount: phrases.length,
               separatorBuilder: (context, index) => const SizedBox(height: 8),
               itemBuilder: (context, index) {
                 final p = phrases[index];
-                return PhraseCard(phrase: p, language: 'Bemba');
+                return PhraseCard(phrase: p, language: selectedLanguage);
               },
             );
           },

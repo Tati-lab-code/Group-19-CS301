@@ -39,10 +39,11 @@ class WelcomeScreen extends StatelessWidget {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepOrange,
+                      foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                     ),
                     onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SignInScreen())),
-                    child: const Text('GET STARTED', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                    child: const Text('GET STARTED', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                   ),
                 ),
               ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/phrase.dart';
 import '../services/audio_service.dart';
 import '../services/favorites_service.dart';
+import '../services/language_preference_service.dart';
 import '../services/phrasebook_service.dart';
 import 'phrasebook_screen.dart';
 
@@ -40,6 +41,14 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     _allPhrasesFuture = _service.getAllPhrases();
+
+    final preferredLanguage = LanguagePreferenceService.getLanguage();
+    final flashcardLanguageIndex = _practiceLanguages.indexOf(preferredLanguage);
+    if (flashcardLanguageIndex >= 0) {
+      _selectedPracticeLanguageIndex = flashcardLanguageIndex;
+    } else {
+      _selectedPracticeLanguageIndex = 0;
+    }
   }
 
   @override
@@ -366,6 +375,7 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                   selected: selected,
                   selectedColor: _darkGreen,
                   backgroundColor: Colors.white,
+                  labelStyle: TextStyle(color: selected ? Colors.white : Colors.black87),
                   onSelected: (_) {
                     setState(() {
                       _fromLanguage = lang;
@@ -389,6 +399,7 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                   selected: selected,
                   selectedColor: _darkGreen,
                   backgroundColor: Colors.white,
+                  labelStyle: TextStyle(color: selected ? Colors.white : Colors.black87),
                   onSelected: (_) {
                     if (lang == _fromLanguage) return;
                     setState(() {

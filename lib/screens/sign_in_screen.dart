@@ -100,9 +100,9 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF1B4D2E), padding: const EdgeInsets.symmetric(vertical: 16.0)),
+                  style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF1B4D2E), foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(vertical: 16.0)),
                   onPressed: _attemptSignIn,
-                  child: const Text('SIGN IN'),
+                  child: const Text('SIGN IN', style: TextStyle(color: Colors.white)),
                 ),
               ),
               const SizedBox(height: 12),

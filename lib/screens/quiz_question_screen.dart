@@ -206,11 +206,12 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _darkGreen,
+                  foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                 ),
                 onPressed: _actionEnabled ? _onActionButtonPressed : null,
-                icon: const Icon(Icons.arrow_forward),
-                label: Text(_actionLabel),
+                icon: const Icon(Icons.arrow_forward, color: Colors.white),
+                label: Text(_actionLabel, style: const TextStyle(color: Colors.white)),
               ),
             ],
           ),
