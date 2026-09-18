@@ -1,6 +1,16 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:record/record.dart';
 
 import '../models/quiz_question.dart';
+import '../services/audio_service.dart';
+import '../services/auth_service.dart';
+import '../services/language_preference_service.dart';
+import '../services/pronunciation_rating_service.dart';
 import '../services/quiz_service.dart';
 import 'quiz_results_screen.dart';
 
@@ -26,12 +36,19 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
 
   final QuizService _quizService = QuizService();
   final TextEditingController _answerController = TextEditingController();
+  final AudioRecorder _recorder = AudioRecorder();
+  final AudioPlayer _recordingPlayer = AudioPlayer();
 
   int _currentIndex = 0;
   int _score = 0;
   String? _selectedOption;
   bool _answerSubmitted = false;
   bool _showHint = false;
+  bool _isRecording = false;
+  bool _isComparing = false;
+  bool _showRating = false;
+  bool _isStoppingRecording = false;
+  Timer? _recordingTimer;
 
   // Free-recall specific: tracks whether the typed answer was correct,
   // once submitted, so we can show feedback before advancing.
@@ -42,8 +59,148 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
 
   @override
   void dispose() {
+    _recordingTimer?.cancel();
+    _recorder.dispose();
+    _recordingPlayer.dispose();
     _answerController.dispose();
     super.dispose();
+  }
+
+  Future<void> _toggleRecording() async {
+    if (_isRecording) {
+      await _stopRecording();
+    } else {
+      await _startRecording();
+    }
+  }
+
+  Future<void> _startRecording() async {
+    if (_isComparing) return;
+
+    try {
+      if (!await _recorder.hasPermission()) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Microphone permission is required to record.'),
+            ),
+          );
+        }
+        return;
+      }
+
+      final temporaryDirectory = await getTemporaryDirectory();
+      final recordingPath =
+          '${temporaryDirectory.path}/speakzed_${DateTime.now().microsecondsSinceEpoch}.m4a';
+      await _recorder.start(
+        const RecordConfig(encoder: AudioEncoder.aacLc),
+        path: recordingPath,
+      );
+
+      if (!mounted) return;
+      setState(() => _isRecording = true);
+      _recordingTimer = Timer(const Duration(seconds: 6), () {
+        if (_isRecording) _stopRecording();
+      });
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Unable to start recording.')),
+        );
+      }
+    }
+  }
+
+  Future<void> _stopRecording() async {
+    if (!_isRecording || _isStoppingRecording) return;
+    _isStoppingRecording = true;
+    _recordingTimer?.cancel();
+
+    try {
+      final recordingPath = await _recorder.stop();
+      if (mounted) setState(() => _isRecording = false);
+      if (recordingPath != null && mounted) {
+        await _playComparison(recordingPath);
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() => _isRecording = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Unable to finish recording.')),
+        );
+      }
+    } finally {
+      _isStoppingRecording = false;
+    }
+  }
+
+  Future<void> _playComparison(String recordingPath) async {
+    if (!mounted) return;
+    setState(() => _isComparing = true);
+    var playbackCompleted = false;
+
+    try {
+      await _recordingPlayer.play(DeviceFileSource(recordingPath));
+      await _recordingPlayer.onPlayerComplete.first;
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+
+      final language = LanguagePreferenceService.getLanguage();
+      final nativeText = _currentQuestion.correctAnswer;
+      await AudioService().playPronunciation(
+        _currentQuestion.phraseId,
+        nativeText,
+        language,
+      );
+      playbackCompleted = true;
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Unable to play the pronunciation comparison.'),
+          ),
+        );
+      }
+    } finally {
+      try {
+        await File(recordingPath).delete();
+      } catch (_) {
+        // The temporary file is best-effort cleanup only.
+      }
+      if (mounted) {
+        setState(() {
+          _isComparing = false;
+          _showRating = playbackCompleted;
+        });
+      }
+    }
+  }
+
+  Future<void> _saveRating(int rating) async {
+    final username = AuthService.getCurrentUser();
+    if (username == null || username.isEmpty) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Sign in to save pronunciation ratings.'),
+          ),
+        );
+      }
+      return;
+    }
+
+    final language = LanguagePreferenceService.getLanguage();
+    await PronunciationRatingService.saveRating(
+      username: username,
+      phraseId: _currentQuestion.phraseId,
+      language: language,
+      rating: rating,
+    );
+
+    if (!mounted) return;
+    setState(() => _showRating = false);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Pronunciation rating saved.')),
+    );
   }
 
   void _selectOption(String option) {
@@ -105,6 +262,7 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
       _freeRecallCorrect = null;
       _answerController.clear();
       _showHint = false;
+      _showRating = false;
     });
   }
 
@@ -139,7 +297,9 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
       builder: (dialogContext) {
         return AlertDialog(
           title: const Text('Leave quiz?'),
-          content: const Text("Leave quiz? Your progress on this attempt won't be saved."),
+          content: const Text(
+            "Leave quiz? Your progress on this attempt won't be saved.",
+          ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(dialogContext),
@@ -211,7 +371,10 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
                 ),
                 onPressed: _actionEnabled ? _onActionButtonPressed : null,
                 icon: const Icon(Icons.arrow_forward, color: Colors.white),
-                label: Text(_actionLabel, style: const TextStyle(color: Colors.white)),
+                label: Text(
+                  _actionLabel,
+                  style: const TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),
@@ -408,20 +571,24 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
             },
           ),
         ),
+        if (_showRating) _buildRatingOptions(),
         const SizedBox(height: 12),
         if (!locked) ...[
           Row(
             children: [
               IconButton(
-                onPressed: () {
-                  // TODO: Add speech-to-text for spoken answer support.
-                },
-                icon: const Icon(Icons.mic, color: Color(0xFF2E8B2E)),
+                onPressed: _isComparing ? null : _toggleRecording,
+                icon: Icon(
+                  _isRecording ? Icons.stop : Icons.mic,
+                  color: _isRecording ? Colors.red : const Color(0xFF2E8B2E),
+                ),
               ),
               const SizedBox(width: 8),
-              const Text(
-                'or tap to speak',
-                style: TextStyle(color: Colors.black54),
+              Text(
+                _isRecording ? 'Recording... tap to stop' : 'or tap to record',
+                style: TextStyle(
+                  color: _isRecording ? Colors.red : Colors.black54,
+                ),
               ),
             ],
           ),
@@ -474,6 +641,34 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
             ],
           ),
       ],
+    );
+  }
+
+  Widget _buildRatingOptions() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'How did it sound?',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 6),
+        Row(
+          children: [
+            _ratingButton(0, Icons.sentiment_dissatisfied, Colors.red),
+            _ratingButton(1, Icons.sentiment_neutral, Colors.orange),
+            _ratingButton(2, Icons.sentiment_satisfied, Colors.green),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _ratingButton(int rating, IconData icon, Color color) {
+    return IconButton(
+      tooltip: ['Needs work', 'Almost there', 'Sounds good'][rating],
+      onPressed: () => _saveRating(rating),
+      icon: Icon(icon, color: color, size: 32),
     );
   }
 }

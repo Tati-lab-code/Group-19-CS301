@@ -34,7 +34,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   flutter_tts: ^4.0.2
+  record: ^6.2.1
   hive: ^2.2.3
+  audioplayers: ^6.1.0
   hive_flutter: ^1.1.0
   intl: ^0.18.0
   path_provider: ^2.0.17
@@ -64,6 +66,7 @@ flutter:
 
   assets:
     - assets/data/phrases.json
+    - assets/audio/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

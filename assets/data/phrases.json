@@ -1,206 +1,1906 @@
 [
     {
-        "phraseId": "P1",
+        "phraseId": "G01",
         "category": "Greetings",
-        "description": "Standard respectful greeting used for everyone",
+        "translations": {
+            "English": "Good morning",
+            "Bemba": "Mwashibukeni",
+            "Nyanja": "Mwauka bwanji?",
+            "Tonga": "Mwabuka buti."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G02",
+        "category": "Greetings",
+        "translations": {
+            "English": "Good afternoon",
+            "Bemba": "Cungulo",
+            "Nyanja": "Mwaswera bwanji?",
+            "Tonga": "Mwalibizya buti?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G03",
+        "category": "Greetings",
+        "translations": {
+            "English": "Good evening",
+            "Bemba": "Cungulo",
+            "Nyanja": "Mwaswera bwanji?",
+            "Tonga": "Kwasiya buti?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G04",
+        "category": "Greetings",
+        "translations": {
+            "English": "Good night",
+            "Bemba": "Mulaale bwino",
+            "Nyanja": "Mugone bwino",
+            "Tonga": "Kusiye kabotu"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G05",
+        "category": "Greetings",
         "translations": {
             "English": "How are you?",
             "Bemba": "Muli shani?",
-            "Nyanja": "Muli bwaa nji?",
-            "Tonga": "Mwapona buti?"
+            "Nyanja": "Muli bwanji?",
+            "Tonga": "Kamwaamba"
         },
         "pronunciation": {
-            "English": "how are you",
-            "Bemba": "mu-li shaa-ni",
-            "Nyanja": "moo-lee boo-ahn-jee",
-            "Tonga": "mwah-poh-nah boo-tee"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P2",
+        "phraseId": "G06",
         "category": "Greetings",
-        "description": "Simple greeting for hello",
+        "translations": {
+            "English": "I'm fine",
+            "Bemba": "Ndifye bwino",
+            "Nyanja": "Ndili bwino",
+            "Tonga": "Ndilikabotu"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G07",
+        "category": "Greetings",
+        "translations": {
+            "English": "I'm fine, how are you?",
+            "Bemba": "Ndifye bwino, muli shani?",
+            "Nyanja": "Ndili bwino, muli bwanji?",
+            "Tonga": "Ndilikabotu, kamwaamba"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G08",
+        "category": "Greetings",
         "translations": {
             "English": "Hello",
             "Bemba": "Shani",
-            "Nyanja": "Bwanji",
+            "Nyanja": "Moni",
             "Tonga": "Muli buti"
         },
         "pronunciation": {
-            "English": "hello",
-            "Bemba": "shaa-ni",
-            "Nyanja": "boo-ahn-jee",
-            "Tonga": "Moo-lee boo-tee"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P3",
+        "phraseId": "G09",
         "category": "Greetings",
-        "description": "Farewell greeting",
+        "translations": {
+            "English": "Nice to meet you",
+            "Bemba": "Cawama ukumikumanya",
+            "Nyanja": "Ndasangalala kukudziwani",
+            "Tonga": "Cabota kuswaangana"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G10",
+        "category": "Greetings",
+        "translations": {
+            "English": "How have you been",
+            "Bemba": "Mwaikala shani?",
+            "Nyanja": "Mwakhala bwanji?",
+            "Tonga": "Alibuti maumi"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G11",
+        "category": "Greetings",
+        "translations": {
+            "English": "Nice to see you",
+            "Bemba": "Cawama ukumimona",
+            "Nyanja": "Ndasangalala kukuonani",
+            "Tonga": "Cabota kukubona"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G12",
+        "category": "Greetings",
+        "translations": {
+            "English": "Long time, no see",
+            "Bemba": "Kale twamonenepo",
+            "Nyanja": "Nthawi yaitali sitinaonane",
+            "Tonga": "Calampa ciindi katutabonani"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G13",
+        "category": "Greetings",
+        "translations": {
+            "English": "Welcome back",
+            "Bemba": "Mwabweleni",
+            "Nyanja": "Mwabwera bwino",
+            "Tonga": "Mwaboola cibotu"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G14",
+        "category": "Greetings",
+        "translations": {
+            "English": "Welcome",
+            "Bemba": "Mwaiseni",
+            "Nyanja": "Takulandirani",
+            "Tonga": "Mwatambulwa"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G15",
+        "category": "Greetings",
+        "translations": {
+            "English": "Welcome home",
+            "Bemba": "Mwaiseni ku ng'anda",
+            "Nyanja": "Mwalandiridwa kunyumba",
+            "Tonga": "Mwatambulwa mumunzi"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G16",
+        "category": "Greetings",
+        "translations": {
+            "English": "How's everything going",
+            "Bemba": "Fyonse file enda shani?",
+            "Nyanja": "Zonse zikuyenda bwanji?",
+            "Tonga": "Zintu zyoonse zyenda buti?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G17",
+        "category": "Greetings",
+        "translations": {
+            "English": "How's work going",
+            "Bemba": "Incito ile enda shani?",
+            "Nyanja": "Ntchito ikuyenda bwanji?",
+            "Tonga": "Mulimo weenda buti?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G18",
+        "category": "Greetings",
+        "translations": {
+            "English": "How's school going",
+            "Bemba": "Isukulu lile enda shani?",
+            "Nyanja": "Sukulu ikuyenda bwanji?",
+            "Tonga": "Cikolo ciyenda buti?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G19",
+        "category": "Greetings",
+        "translations": {
+            "English": "Hope you're doing well",
+            "Bemba": "Ndesubila muli bwino",
+            "Nyanja": "Ndikhulupirira muli bwino",
+            "Tonga": "Ndishoma mulikabotu."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G20",
+        "category": "Greetings",
+        "translations": {
+            "English": "How was your day?",
+            "Bemba": "Fyaenda shani lelo?",
+            "Nyanja": "Tsiku lanu linali bwanji?",
+            "Tonga": "Buzuba bwako bwali buti?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G21",
+        "category": "Greetings",
+        "translations": {
+            "English": "What's new?",
+            "Bemba": "Finshi ifipya?",
+            "Nyanja": "Chatsopano nchiyani?",
+            "Tonga": "Ncinzi cinyowani"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G22",
+        "category": "Greetings",
+        "translations": {
+            "English": "See you soon",
+            "Bemba": "Tukamonana nomba line",
+            "Nyanja": "Tionana posachedwa",
+            "Tonga": "Tulabonana lino-lino"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G23",
+        "category": "Greetings",
+        "translations": {
+            "English": "See you later",
+            "Bemba": "Tukamonana pa kashita kambi",
+            "Nyanja": "Tionana pambuyo",
+            "Tonga": "Tulaabonana kabotu alimwi"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G24",
+        "category": "Greetings",
         "translations": {
             "English": "Goodbye",
-            "Bemba": "Shalapo",
+            "Bemba": "Shalenipo",
+            "Nyanja": "Tsalani bwino",
+            "Tonga": "Mushaale kabotu."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G25",
+        "category": "Greetings",
+        "translations": {
+            "English": "Have a nice day",
+            "Bemba": "Nafyende bwino lelo",
+            "Nyanja": "Mukhale ndi tsiku labwino",
+            "Tonga": "Mube abuzuba bubotu."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G26",
+        "category": "Greetings",
+        "translations": {
+            "English": "What's your name?",
+            "Bemba": "Nimwe banani ishina?",
+            "Nyanja": "Dzina lanu ndani?",
+            "Tonga": "Ndinywe bani zina?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G27",
+        "category": "Greetings",
+        "translations": {
+            "English": "My name is...",
+            "Bemba": "Ishina lyandi ni...",
+            "Nyanja": "Dzina langa ndi...",
+            "Tonga": "Zina lyangu ndime..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G28",
+        "category": "Greetings",
+        "translations": {
+            "English": "See you tomorrow",
+            "Bemba": "Tukamonana mailo",
+            "Nyanja": "Tionana mawa",
+            "Tonga": "Tulabonana juunza."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G29",
+        "category": "Greetings",
+        "translations": {
+            "English": "How's life?",
+            "Bemba": "Ubumi buli shani?",
+            "Nyanja": "Moyo uli bwanji?",
+            "Tonga": "Buumi bulibuti."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "G30",
+        "category": "Greetings",
+        "translations": {
+            "English": "Glad to have you here",
+            "Bemba": "Catusekesha ukweba ati epomuli",
+            "Nyanja": "Ndasangalala kuti muli kuno",
+            "Tonga": "Cabota kuba anduwe okuno."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH01",
+        "category": "Shopping",
+        "translations": {
+            "English": "How much is this?",
+            "Bemba": "Ni shinga ici?",
+            "Nyanja": "Ndi ndalama zingati?",
+            "Tonga": "Mali nzi eeci?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH02",
+        "category": "Shopping",
+        "translations": {
+            "English": "Is this for sale?",
+            "Bemba": "Ici caku shitisha?",
+            "Nyanja": "Ichi akugulitsa?",
+            "Tonga": "Sena mulasambala eeci?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH03",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you have this?",
+            "Bemba": "Bushe namukwata ici?",
+            "Nyanja": "Muli ndi ichi?",
+            "Tonga": "Mulijisi eeci?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH04",
+        "category": "Shopping",
+        "translations": {
+            "English": "Can I see it?",
+            "Bemba": "Kuti nacimona?",
+            "Nyanja": "Ndingachione?",
+            "Tonga": "Sena inga ndacibona?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH05",
+        "category": "Shopping",
+        "translations": {
+            "English": "Where can I try it on?",
+            "Bemba": "Ukwa kulingamo ni kwisa?",
+            "Nyanja": "Ndingayese kuti?",
+            "Tonga": "Nkukuli nkondikonzya kucisolela?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH06",
+        "category": "Shopping",
+        "translations": {
+            "English": "I like this one",
+            "Bemba": "Natemwa ici",
+            "Nyanja": "Ndikonda ichi",
+            "Tonga": "Ndiyanda eeci."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH07",
+        "category": "Shopping",
+        "translations": {
+            "English": "I'm just looking",
+            "Bemba": "Ndemonakofye",
+            "Nyanja": "Ndikungoyang'ana",
+            "Tonga": "Ndilangilila buyo."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH08",
+        "category": "Shopping",
+        "translations": {
+            "English": "Where is the food section?",
+            "Bemba": "Ukwa kushita ifyakulya ni kwisa?",
+            "Nyanja": "Chakudya chili kuti?",
+            "Tonga": "Nkukuli kuli cakulya?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH09",
+        "category": "Shopping",
+        "translations": {
+            "English": "Where can I pay?",
+            "Bemba": "Ndelipilila kwisa?",
+            "Nyanja": "Ndingalipire kuti?",
+            "Tonga": "Nkukuli kwaku bbadelela?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH10",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you accept mobile money?",
+            "Bemba": "Mula pokelela mobile money?",
+            "Nyanja": "Mumalandira mobile money?",
+            "Tonga": "Sena mulazumina mali amu mobile?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH11",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you accept card?",
+            "Bemba": "Mula pokelela card?",
+            "Nyanja": "Mumalandira card?",
+            "Tonga": "Sena mulazumina kkadi?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH12",
+        "category": "Shopping",
+        "translations": {
+            "English": "Please give me a receipt",
+            "Bemba": "Mpeeniko ilisiti",
+            "Nyanja": "Ndipatseni risiti",
+            "Tonga": "Amundipe lisiiti."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH13",
+        "category": "Shopping",
+        "translations": {
+            "English": "Can you reduce the price?",
+            "Bemba": "Kuti mwacefyako umutengo?",
+            "Nyanja": "Mungachotseko?",
+            "Tonga": "Kamucesya muulo?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH14",
+        "category": "Shopping",
+        "translations": {
+            "English": "Is there a discount?",
+            "Bemba": "Kuli ukucefyako umutengo?",
+            "Nyanja": "Pali kuchotsera?",
+            "Tonga": "Sena mulacesya muulo?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH15",
+        "category": "Shopping",
+        "translations": {
+            "English": "I can't afford it",
+            "Bemba": "Nshikwete indalama ishinga linga ukulipilila ichi cintu",
+            "Nyanja": "Sindingakwanitse",
+            "Tonga": "Sejisi mali manji."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH16",
+        "category": "Shopping",
+        "translations": {
+            "English": "I will come back later",
+            "Bemba": "Nalabwela inshita imbi",
+            "Nyanja": "Ndidzabwera pambuyo",
+            "Tonga": "Ndilaboola kabotu."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH17",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you sell this in bulk?",
+            "Bemba": "Bushe ici mulashitisha mu fingi?",
+            "Nyanja": "Mumagulitsa zambiri?",
+            "Tonga": "Mulauzya sena eeci mubunji?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH18",
+        "category": "Shopping",
+        "translations": {
+            "English": "Thank you for the help",
+            "Bemba": "Natotela pa bwafwilisho",
+            "Nyanja": "Zikomo pothandiza",
+            "Tonga": "Ndalumba kulugwasyo."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH19",
+        "category": "Shopping",
+        "translations": {
+            "English": "Is this good quality?",
+            "Bemba": "Bushe ici cintu ca yemba?",
+            "Nyanja": "Ichi nchabwino?",
+            "Tonga": "Sena eeci ncibotu cini-cini?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH20",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you have change?",
+            "Bemba": "Bushe namukwata icenji?",
+            "Nyanja": "Muli ndi chenji?",
+            "Tonga": "Sena mulijisi mali acincidwe?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH21",
+        "category": "Shopping",
+        "translations": {
+            "English": "Where is the cashier?",
+            "Bemba": "Uwa kulipilako ali kwisa?",
+            "Nyanja": "Kashiya ali kuti?",
+            "Tonga": "Nkuli kwaku bbadelela?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH22",
+        "category": "Shopping",
+        "translations": {
+            "English": "I don't want this one",
+            "Bemba": "Nshilefwaya ici",
+            "Nyanja": "Sindifuna ichi",
+            "Tonga": "Seyandi eeci."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH23",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you have another size?",
+            "Bemba": "Bushe namukwata mu bukulu bumbi?",
+            "Nyanja": "Muli ndi saizi ina?",
+            "Tonga": "Sena mulijisi musela (saizi) umbi?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH24",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you have another colour?",
+            "Bemba": "Bushe namukwata langi imbi?",
+            "Nyanja": "Muli ndi mtundu wina?",
+            "Tonga": "Sena mulijisi musyobo umbi?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH25",
+        "category": "Shopping",
+        "translations": {
+            "English": "What is your last price?",
+            "Bemba": "Ilepela pali shinga?",
+            "Nyanja": "Mtengo wotsiriza ndi uti?",
+            "Tonga": "Nguuli muulo wamamanino?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH26",
+        "category": "Shopping",
+        "translations": {
+            "English": "This is too expensive",
+            "Bemba": "Ici ca mutengo saana",
+            "Nyanja": "Ichi ndi chodula kwambiri",
+            "Tonga": "Eeci chiladula kapati."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH27",
+        "category": "Shopping",
+        "translations": {
+            "English": "Can I buy two?",
+            "Bemba": "Kuti nashita fibili?",
+            "Nyanja": "Ndingagule ziwiri?",
+            "Tonga": "Nduule zyobilo?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH28",
+        "category": "Shopping",
+        "translations": {
+            "English": "Can I pay by phone?",
+            "Bemba": "Kuti nalipila na foni?",
+            "Nyanja": "Ndingalipire ndi foni?",
+            "Tonga": "Sena inga ndabbadela kubelesha luwaile?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH29",
+        "category": "Shopping",
+        "translations": {
+            "English": "Do you accept cash?",
+            "Bemba": "Mulapokelela ndalama sha mu minwe?",
+            "Nyanja": "Mumalandira ndalama za m'manja?",
+            "Tonga": "Mulazumina mali amu maanza?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SH30",
+        "category": "Shopping",
+        "translations": {
+            "English": "Is this new?",
+            "Bemba": "Cipya ici?",
+            "Nyanja": "Ichi nchatsopano?",
+            "Tonga": "Sena eeci ncipya."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO01",
+        "category": "Social",
+        "translations": {
+            "English": "What is your name?",
+            "Bemba": "Nimwe banani ishina?",
+            "Nyanja": "Dzina lanu ndani?",
+            "Tonga": "Ino ndinywe baani zyina?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO02",
+        "category": "Social",
+        "translations": {
+            "English": "My name is ...",
+            "Bemba": "Ishina lyandi ni...",
+            "Nyanja": "Dzina langa ndi...",
+            "Tonga": "Zyina lyangu ndime..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO03",
+        "category": "Social",
+        "translations": {
+            "English": "Where are you from?",
+            "Bemba": "Mufuma kwisa?",
+            "Nyanja": "Mumachokera kuti?",
+            "Tonga": "Uzwa kuli?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO04",
+        "category": "Social",
+        "translations": {
+            "English": "I'm from ...",
+            "Bemba": "Mufuma ku...",
+            "Nyanja": "Ndimachokera ku...",
+            "Tonga": "Ndili waku..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO05",
+        "category": "Social",
+        "translations": {
+            "English": "Where do you live?",
+            "Bemba": "Mwikala kwisa?",
+            "Nyanja": "Mumakhala kuti?",
+            "Tonga": "Ukkala kuli?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO06",
+        "category": "Social",
+        "translations": {
+            "English": "I live in ...",
+            "Bemba": "Njikala ku...",
+            "Nyanja": "Ndimakhala ku...",
+            "Tonga": "Ndikkala ku/kwa..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO07",
+        "category": "Social",
+        "translations": {
+            "English": "How old are you?",
+            "Bemba": "Mwakwata imyaka inga?",
+            "Nyanja": "Muli ndi zaka zingati?",
+            "Tonga": "Ujisi myaka yongaye?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO08",
+        "category": "Social",
+        "translations": {
+            "English": "I'm ... years old",
+            "Bemba": "Nakwata imyaka...",
+            "Nyanja": "Ndili ndi zaka...",
+            "Tonga": "Ndili a..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO09",
+        "category": "Social",
+        "translations": {
+            "English": "What do you do?",
+            "Bemba": "Finshi mucita?",
+            "Nyanja": "Mumagwira ntchito yanji?",
+            "Tonga": "Mulimo nzi ngocita?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO10",
+        "category": "Social",
+        "translations": {
+            "English": "What are you doing?",
+            "Bemba": "Finshi mulecita?",
+            "Nyanja": "Mukuchita chiyani?",
+            "Tonga": "Ucita nzi?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO11",
+        "category": "Social",
+        "translations": {
+            "English": "Where are you going?",
+            "Bemba": "Muleya kwisa?",
+            "Nyanja": "Mukupita kuti?",
+            "Tonga": "Wiinka kuli?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO12",
+        "category": "Social",
+        "translations": {
+            "English": "Can I come with you?",
+            "Bemba": "Bushe kuti naya na imwe?",
+            "Nyanja": "Ndingapite nanu?",
+            "Tonga": "Sena inga twainka antoomwe?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO13",
+        "category": "Social",
+        "translations": {
+            "English": "Let us go together",
+            "Bemba": "Tuleyeni bonse",
+            "Nyanja": "Tiyeni tipite limodzi",
+            "Tonga": "Twendele antoomwe."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO14",
+        "category": "Social",
+        "translations": {
+            "English": "Please wait for me",
+            "Bemba": "Napapata ndoleleniko",
+            "Nyanja": "Ndidikireni",
+            "Tonga": "Ndakomba ndilindile."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO15",
+        "category": "Social",
+        "translations": {
+            "English": "See you tomorrow",
+            "Bemba": "Tukamonana mailo",
+            "Nyanja": "Tionana mawa",
+            "Tonga": "Tulaswaangana juunza."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO16",
+        "category": "Social",
+        "translations": {
+            "English": "Have a good day",
+            "Bemba": "Nafyende bwino lelo",
+            "Nyanja": "Mukhale ndi tsiku labwino",
+            "Tonga": "Mupone cibotu."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO17",
+        "category": "Social",
+        "translations": {
+            "English": "How was your day?",
+            "Bemba": "Fyaenda shani lelo?",
+            "Nyanja": "Tsiku lanu linali bwanji?",
+            "Tonga": "Buzuba bwako bwali buti?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO18",
+        "category": "Social",
+        "translations": {
+            "English": "What happened?",
+            "Bemba": "Cinshi cacitike?",
+            "Nyanja": "Chinachitika nchiyani?",
+            "Tonga": "Ncinzi cakacitika?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO19",
+        "category": "Social",
+        "translations": {
+            "English": "Thank you for helping me",
+            "Bemba": "Natotela pa kungafwa",
+            "Nyanja": "Zikomo pondithandiza",
+            "Tonga": "Ndalumba kundigwasya."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO20",
+        "category": "Social",
+        "translations": {
+            "English": "You're welcome",
+            "Bemba": "Takwaba bwafya",
+            "Nyanja": "Palibe kanthu",
+            "Tonga": "Watambulwa."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO21",
+        "category": "Social",
+        "translations": {
+            "English": "Please help me",
+            "Bemba": "Napapata ngafweniko",
+            "Nyanja": "Chonde ndithandizeni",
+            "Tonga": "Amundigwasye."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO22",
+        "category": "Social",
+        "translations": {
+            "English": "Excuse me",
+            "Bemba": "Njeleleniko",
+            "Nyanja": "Pepani",
+            "Tonga": "Amundijatile."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO23",
+        "category": "Social",
+        "translations": {
+            "English": "Please come in",
+            "Bemba": "Ingileni",
+            "Nyanja": "Lowani",
+            "Tonga": "Amunjile."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO24",
+        "category": "Social",
+        "translations": {
+            "English": "Have a seat",
+            "Bemba": "Ikaleniko",
+            "Nyanja": "Khalani pansi",
+            "Tonga": "Amukkale."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO25",
+        "category": "Social",
+        "translations": {
+            "English": "What are you talking about?",
+            "Bemba": "Mulelanda pa nshi?",
+            "Nyanja": "Mukunena za chiyani?",
+            "Tonga": "Ncinzi ncomwaamba?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO26",
+        "category": "Social",
+        "translations": {
+            "English": "That is interesting",
+            "Bemba": "Ico calinga",
+            "Nyanja": "Zimenezo nzosangalatsa",
+            "Tonga": "Eci ncibotu."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO27",
+        "category": "Social",
+        "translations": {
+            "English": "I agree with you",
+            "Bemba": "Nasumina",
+            "Nyanja": "Ndikuvomereza",
+            "Tonga": "Ndazumina kwambaula kwako."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO28",
+        "category": "Social",
+        "translations": {
+            "English": "I don't understand",
+            "Bemba": "Nshishibe emo ca lola",
+            "Nyanja": "Sindikumva",
+            "Tonga": "Tanditeeleli."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO29",
+        "category": "Social",
+        "translations": {
+            "English": "Please say it again",
+            "Bemba": "Bwekeshapo",
+            "Nyanja": "Bwerezaninso",
+            "Tonga": "Amwambe alimwi."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "SO30",
+        "category": "Social",
+        "translations": {
+            "English": "Can you speak slowly?",
+            "Bemba": "Kuti mwalanda panono panono?",
+            "Nyanja": "Mungalankhule pang'onopang'ono?",
+            "Tonga": "Kamwaambaula asyoonto-syoonto?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR01",
+        "category": "Travelling",
+        "translations": {
+            "English": "Where are you going?",
+            "Bemba": "Muleya kwisa?",
+            "Nyanja": "Mukupita kuti?",
+            "Tonga": "Muya kuli? / Uya kuli?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR02",
+        "category": "Travelling",
+        "translations": {
+            "English": "Where are you travelling to?",
+            "Bemba": "Bushe muli palwendo lwakuya kwisa?",
+            "Nyanja": "Mukuyenda kuti?",
+            "Tonga": "Muya kuli?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR03",
+        "category": "Travelling",
+        "translations": {
+            "English": "Where's the bus station?",
+            "Bemba": "Ni kwisa ukwaku ninina ama basi?",
+            "Nyanja": "Siteshoni ya basi ili kuti?",
+            "Tonga": "Citishini cama motokala cili kuli?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR04",
+        "category": "Travelling",
+        "translations": {
+            "English": "How do I get there?",
+            "Bemba": "Kuti nafika shani kulya?",
+            "Nyanja": "Ndingafike bwanji kumeneko?",
+            "Tonga": "Ndileenda buti kusika oku?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR05",
+        "category": "Travelling",
+        "translations": {
+            "English": "Have a safe journey",
+            "Bemba": "Mwende bwino",
             "Nyanja": "Muyende bwino",
             "Tonga": "Mweende kabotu"
         },
         "pronunciation": {
-            "English": "goodbye",
-            "Bemba": "shaa-laa-po",
-            "Nyanja": "muu-yen-deh boo-ii-noh",
-            "Tonga": "mweh-en-deh kah-boh-too"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P4",
-        "category": "Travel",
-        "description": "Asking for directions",
+        "phraseId": "TR06",
+        "category": "Travelling",
         "translations": {
-            "English": "Where is the bus stop?",
-            "Bemba": "Bus stop ili kwisa?",
-            "Nyanja": "Bus stop ili kuti?",
-            "Tonga": "Bus stop ili kuli?"
+            "English": "When are you coming back?",
+            "Bemba": "Mukabwela lisa?",
+            "Nyanja": "Mudzabwera liti?",
+            "Tonga": "Muya kupiluka lili?"
         },
         "pronunciation": {
-            "English": "where is the bus stop",
-            "Bemba": "bus stop eelee kwee-saa",
-            "Nyanja": "bus stop ee-lee koo-tee",
-            "Tonga": "bus stop ee-lee koo-lee"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P5",
-        "category": "Travel",
-        "description": "Asking how far a place is",
+        "phraseId": "TR07",
+        "category": "Travelling",
+        "translations": {
+            "English": "How much is the fare?",
+            "Bemba": "Indalama shaku lipila palwendo ni shinga?",
+            "Nyanja": "Mtengo wa basi ndi zingati?",
+            "Tonga": "Mali nzi kukkwela mu motokala?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR08",
+        "category": "Travelling",
+        "translations": {
+            "English": "I'm lost",
+            "Bemba": "Ninduba",
+            "Nyanja": "Ndasokera",
+            "Tonga": "Ndasweeka."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR09",
+        "category": "Travelling",
+        "translations": {
+            "English": "Please stop at the next ...",
+            "Bemba": "Mwiminine apa...",
+            "Nyanja": "Chonde imani pa...",
+            "Tonga": "Akaka mwime acitisyini chitobela cha..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR10",
+        "category": "Travelling",
+        "translations": {
+            "English": "Can you help me?",
+            "Bemba": "Kuti mwangafwako?",
+            "Nyanja": "Mungandithandize?",
+            "Tonga": "Ndalomba undigwasye?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR11",
+        "category": "Travelling",
+        "translations": {
+            "English": "Can you show me on the map?",
+            "Bemba": "Kuti mwandanga pa mapu?",
+            "Nyanja": "Mungandionetse pa mapu?",
+            "Tonga": "Ndalomba unditondezye amapu?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR12",
+        "category": "Travelling",
+        "translations": {
+            "English": "Please take me to the ...",
+            "Bemba": "Ntwaleni ku...",
+            "Nyanja": "Nditengereni ku...",
+            "Tonga": "Ndalomba unditole ku..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR13",
+        "category": "Travelling",
+        "translations": {
+            "English": "Where is the nearest restaurant?",
+            "Bemba": "Apakuliila ni pesa apa palamineko?",
+            "Nyanja": "Malo odyera apafupi ali kuti?",
+            "Tonga": "Nkuli nkosambala cakulya afwafwi"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR14",
+        "category": "Travelling",
+        "translations": {
+            "English": "I'm leaving today",
+            "Bemba": "Ndeya lelo",
+            "Nyanja": "Ndikuchoka lero",
+            "Tonga": "Ndanyamuka sunu."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR15",
+        "category": "Travelling",
+        "translations": {
+            "English": "I don't know this place",
+            "Bemba": "Nshikwishibe uku",
+            "Nyanja": "Sindikudziwa malo ano",
+            "Tonga": "Sebuzyi busena obu"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR16",
+        "category": "Travelling",
+        "translations": {
+            "English": "I'm looking for ...",
+            "Bemba": "Ndefwaya...",
+            "Nyanja": "Ndikufuna...",
+            "Tonga": "Ndiyandaula..."
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR17",
+        "category": "Travelling",
+        "translations": {
+            "English": "Where can I get off?",
+            "Bemba": "Nala ikilila pesa?",
+            "Nyanja": "Ndingatsike kuti?",
+            "Tonga": "Nkukuli nkondikonzya kuseluka?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR18",
+        "category": "Travelling",
+        "translations": {
+            "English": "Where is my seat?",
+            "Bemba": "Icipuna candi cili pesa?",
+            "Nyanja": "Mpando wanga uli kuti?",
+            "Tonga": "Ncicili cuuno cangu?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR19",
+        "category": "Travelling",
+        "translations": {
+            "English": "When is the next ...?",
+            "Bemba": "Iyikonkelepo ili lilali?",
+            "Nyanja": "... yotsatira ndi liti?",
+            "Tonga": "Njiili itobela...?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR20",
+        "category": "Travelling",
+        "translations": {
+            "English": "What time will I arrive?",
+            "Bemba": "Nkafika nshita nshi?",
+            "Nyanja": "Ndifika nthawi yanji?",
+            "Tonga": "Ndilasika ciindi nzi?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR21",
+        "category": "Travelling",
+        "translations": {
+            "English": "Is this the right way?",
+            "Bemba": "Uyu e musebo uulungeme?",
+            "Nyanja": "Iyi ndi njira yoyenera?",
+            "Tonga": "Sena eeyi nzila ililuleme?"
+        },
+        "pronunciation": {
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
+        }
+    },
+    {
+        "phraseId": "TR22",
+        "category": "Travelling",
         "translations": {
             "English": "How far is it?",
-            "Bemba": "kutali shani?",
-            "Nyanja": "Ni kutali bwanji?",
+            "Bemba": "Kutali shani?",
+            "Nyanja": "Ndi kutali bwanji?",
             "Tonga": "Nkule buti?"
         },
         "pronunciation": {
-            "English": "how far is it",
-            "Bemba": "koo-tah-lee shah-ni",
-            "Nyanja": "nii kuu-tah-lee bwahn-jee",
-            "Tonga": "nkee-leh boo-tee"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P6",
-        "category": "Travel",
-        "description": "Requesting a stop",
+        "phraseId": "TR23",
+        "category": "Travelling",
         "translations": {
-            "English": "Please stop here",
-            "Bemba": "Lekeni apa",
-            "Nyanja": "Imani pamene apa",
-            "Tonga": "Amwiime aano"
+            "English": "Is this seat taken?",
+            "Bemba": "Bushe pali umuntu pa cipuna ichi?",
+            "Nyanja": "Mpando uwu uli ndi munthu?",
+            "Tonga": "Sena eci cuuno kulibaliko kale?"
         },
         "pronunciation": {
-            "English": "please stop here",
-            "Bemba": "le-ke-ni ah-pah",
-            "Nyanja": "ee-mah-nii pah-meh-neh-apa",
-            "Tonga": "ah-mwee-meh ah-noh"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P7",
-        "category": "Shopping",
-        "description": "Asking the price of an item",
+        "phraseId": "TR24",
+        "category": "Travelling",
         "translations": {
-            "English": "How much is this?",
-            "Bemba": "shinga ici?",
-            "Nyanja": "Nii zingati ici?",
-            "Tonga": "Mali nzi eci?"
+            "English": "Do you have a room?",
+            "Bemba": "Namukwata umuputule?",
+            "Nyanja": "Muli ndi chipinda?",
+            "Tonga": "Sena mulijisi kale ng'anda?"
         },
         "pronunciation": {
-            "English": "how much is this",
-            "Bemba": "sheen-gah ee-chee",
-            "Nyanja": "nii zeen-gah-tee ee-chee",
-            "Tonga": "Mah-lee nzee eh-chee"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P8",
-        "category": "Shopping",
-        "description": "Negotiating price",
+        "phraseId": "TR25",
+        "category": "Travelling",
         "translations": {
-            "English": "Can you reduce the price?",
-            "Bemba": "cefyeniko indalama?",
-            "Nyanja": "Mungachoseko pang'ono?",
-            "Tonga": "Kocesya muulo?"
+            "English": "I have a reservation",
+            "Bemba": "Nalisungisha",
+            "Nyanja": "Ndinasungitsa",
+            "Tonga": "Ndakalembya zyoonse."
         },
         "pronunciation": {
-            "English": "can you reduce the price",
-            "Bemba": "che-fee-ye-ni-koh een-dah-lah-mah",
-            "Nyanja": "moon-gah-choh-seh-koh pa-ng'o-no",
-            "Tonga": "koh-cheh-syah moo-lo"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P9",
-        "category": "Shopping",
-        "description": "Basic purchase confirmation",
+        "phraseId": "TR26",
+        "category": "Travelling",
         "translations": {
-            "English": "I will buy this",
-            "Bemba": "Nalashita ici",
-            "Nyanja": "Niizagula ici",
-            "Tonga": "Ndilaula eezi"
+            "English": "Please show me the way",
+            "Bemba": "Ndangeniko inshila",
+            "Nyanja": "Chonde ndionetseni njira",
+            "Tonga": "Ndalomba nditondezye nzila."
         },
         "pronunciation": {
-            "English": "i will buy this",
-            "Bemba": "nah-lah-shee-tah ee-chee",
-            "Nyanja": "nii-zah-guh-lah ee-chee",
-            "Tonga": "ndee-lah-oo-lah eh-zee"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P10",
-        "category": "Social",
-        "description": "Asking someone's name",
+        "phraseId": "TR27",
+        "category": "Travelling",
         "translations": {
-            "English": "What is your name?",
-            "Bemba": "Nishani ishina lyenu?",
-            "Nyanja": "Ndiwe ndani zina?",
-            "Tonga": "Ndiweni zina?"
+            "English": "Where can I get food?",
+            "Bemba": "Ni kwisa ninga sanga ifya kulya?",
+            "Nyanja": "Ndingapeze chakudya kuti?",
+            "Tonga": "Nkukuli nkwekonzya kujana cakulya?"
         },
         "pronunciation": {
-            "English": "what is your name",
-            "Bemba": "nee-shah-nee ee-shee-nah lee-yeh-nu",
-            "Nyanja": "ndee-weh ndah-nee zee-nah",
-            "Tonga": "ndee-weh-nee ee-zee-nah lyah-koh"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P11",
-        "category": "Social",
-        "description": "Expressing thanks",
+        "phraseId": "TR28",
+        "category": "Travelling",
         "translations": {
-            "English": "Thank you",
-            "Bemba": "Natotela",
-            "Nyanja": "Zikomo",
-            "Tonga": "Twalumba"
+            "English": "I need a ticket",
+            "Bemba": "Ndefwaya tiketi",
+            "Nyanja": "Ndikufuna tiketi",
+            "Tonga": "Ndiyanda tiketi."
         },
         "pronunciation": {
-            "English": "thank you",
-            "Bemba": "nah-toh-teh-lah",
-            "Nyanja": "zee-koh-moh",
-            "Tonga": "twah-loom-bah"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     },
     {
-        "phraseId": "P12",
-        "category": "Social",
-        "description": "Introducing yourself",
+        "phraseId": "TR29",
+        "category": "Travelling",
         "translations": {
-            "English": "My name is...",
-            "Bemba": "Ishina lyandi ni...",
-            "Nyanja": "Dzina yanga ni...",
-            "Tonga": "Izina lyangu ndime..."
+            "English": "What time does the bus leave?",
+            "Bemba": "Basi ileyambapo nshita nshi?",
+            "Nyanja": "Basi ichoka nthawi yanji?",
+            "Tonga": "Mootokala (Bbasi) inyamuka ciindi nzi?"
         },
         "pronunciation": {
-            "English": "my name is",
-            "Bemba": "ee-shee-nah lian-dee ni",
-            "Nyanja": "zee-nah yahn-gah nii",
-            "Tonga": "ee-zee-nah lyahn-goo ndee-meh"
+            "English": null,
+            "Bemba": null,
+            "Nyanja": null,
+            "Tonga": null
         }
     }
 ]

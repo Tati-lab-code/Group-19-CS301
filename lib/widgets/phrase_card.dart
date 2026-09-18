@@ -38,7 +38,10 @@ class _PhraseCardState extends State<PhraseCard> {
 
   String _lookup(Map<String, String> map, String language) {
     // case-insensitive key lookup
-    final key = map.keys.firstWhere((k) => k.toLowerCase() == language.toLowerCase(), orElse: () => '');
+    final key = map.keys.firstWhere(
+      (k) => k.toLowerCase() == language.toLowerCase(),
+      orElse: () => '',
+    );
     if (key.isEmpty) return '';
     return map[key] ?? '';
   }
@@ -50,7 +53,6 @@ class _PhraseCardState extends State<PhraseCard> {
 
     final eng = _lookup(widget.phrase.translations, 'English');
     final local = _lookup(widget.phrase.translations, widget.language);
-    final pron = _lookup(widget.phrase.pronunciation, widget.language);
 
     return Card(
       color: Colors.white,
@@ -63,16 +65,25 @@ class _PhraseCardState extends State<PhraseCard> {
             Align(
               alignment: Alignment.topRight,
               child: Chip(
-                label: Text(widget.phrase.category, style: const TextStyle(color: Colors.black54, fontSize: 12)),
+                label: Text(
+                  widget.phrase.category,
+                  style: const TextStyle(color: Colors.black54, fontSize: 12),
+                ),
                 backgroundColor: lightGrey,
               ),
             ),
 
             const SizedBox(height: 6),
 
-            Text(eng, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            Text(
+              eng,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 6),
-            Text(widget.phrase.description, style: const TextStyle(color: Colors.black54)),
+            Text(
+              widget.phrase.description,
+              style: const TextStyle(color: Colors.black54),
+            ),
 
             const SizedBox(height: 12),
 
@@ -82,9 +93,13 @@ class _PhraseCardState extends State<PhraseCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(local, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-                      const SizedBox(height: 4),
-                      Text(pron, style: const TextStyle(fontStyle: FontStyle.italic, color: Colors.black54)),
+                      Text(
+                        local,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -93,19 +108,26 @@ class _PhraseCardState extends State<PhraseCard> {
                   children: [
                     IconButton(
                       onPressed: _toggleFavorite,
-                      icon: Icon(_isFavorite ? Icons.favorite : Icons.favorite_border, color: darkGreen),
+                      icon: Icon(
+                        _isFavorite ? Icons.favorite : Icons.favorite_border,
+                        color: darkGreen,
+                      ),
                     ),
                     IconButton(
                       onPressed: () async {
-                        final toSpeak = pron.isNotEmpty ? pron : local.isNotEmpty ? local : eng;
-                        await _audioService.playPronunciation(toSpeak, widget.language);
+                        final toSpeak = local.isNotEmpty ? local : eng;
+                        await _audioService.playPronunciation(
+                          widget.phrase.phraseId,
+                          toSpeak,
+                          widget.language,
+                        );
                       },
                       icon: const Icon(Icons.play_arrow, color: Colors.black87),
                     ),
                   ],
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

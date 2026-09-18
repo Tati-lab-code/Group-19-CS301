@@ -31,7 +31,9 @@ class QuizService {
     for (var i = 0; i < quizPhrases.length; i++) {
       final phrase = quizPhrases[i];
       if (i.isEven) {
-        questions.add(_buildMultipleChoiceQuestion(phrase, allEnglishTranslations));
+        questions.add(
+          _buildMultipleChoiceQuestion(phrase, allEnglishTranslations),
+        );
       } else {
         questions.add(_buildFreeRecallQuestion(phrase));
       }
@@ -73,10 +75,16 @@ class QuizService {
     }
   }
 
-  QuizQuestion _buildMultipleChoiceQuestion(Phrase phrase, List<String> allEnglishTranslations) {
+  QuizQuestion _buildMultipleChoiceQuestion(
+    Phrase phrase,
+    List<String> allEnglishTranslations,
+  ) {
     final correctAnswer = phrase.translations['English'] ?? '';
     final wrongOptions = allEnglishTranslations
-        .where((translation) => translation.isNotEmpty && translation != correctAnswer)
+        .where(
+          (translation) =>
+              translation.isNotEmpty && translation != correctAnswer,
+        )
         .toList();
 
     wrongOptions.shuffle(_random);
@@ -86,10 +94,11 @@ class QuizService {
     return QuizQuestion(
       phraseId: phrase.phraseId,
       type: QuestionType.multipleChoice,
-      questionText: "What does '${phrase.translations['Bemba'] ?? ''}' mean in English?",
+      questionText:
+          "What does '${phrase.translations['Bemba'] ?? ''}' mean in English?",
       options: options,
       correctAnswer: correctAnswer,
-      hint: phrase.pronunciation['Bemba'],
+      hint: phrase.getPronunciation('Bemba'),
     );
   }
 
@@ -100,10 +109,11 @@ class QuizService {
     return QuizQuestion(
       phraseId: phrase.phraseId,
       type: QuestionType.freeRecall,
-      questionText: "How do you say '${phrase.translations['English'] ?? ''}' in $selectedLanguage?",
+      questionText:
+          "How do you say '${phrase.translations['English'] ?? ''}' in $selectedLanguage?",
       options: null,
       correctAnswer: correctAnswer,
-      hint: phrase.pronunciation[selectedLanguage],
+      hint: phrase.getPronunciation(selectedLanguage),
     );
   }
 }

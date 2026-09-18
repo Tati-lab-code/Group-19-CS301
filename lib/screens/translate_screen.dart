@@ -14,7 +14,8 @@ class TranslateScreen extends StatefulWidget {
   State<TranslateScreen> createState() => _TranslateScreenState();
 }
 
-class _TranslateScreenState extends State<TranslateScreen> with TickerProviderStateMixin {
+class _TranslateScreenState extends State<TranslateScreen>
+    with TickerProviderStateMixin {
   late final TabController _tabController;
   final _practiceLanguages = const ['Bemba', 'Nyanja', 'Tonga'];
   final _translateLanguages = const ['English', 'Bemba', 'Nyanja', 'Tonga'];
@@ -43,7 +44,9 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
     _allPhrasesFuture = _service.getAllPhrases();
 
     final preferredLanguage = LanguagePreferenceService.getLanguage();
-    final flashcardLanguageIndex = _practiceLanguages.indexOf(preferredLanguage);
+    final flashcardLanguageIndex = _practiceLanguages.indexOf(
+      preferredLanguage,
+    );
     if (flashcardLanguageIndex >= 0) {
       _selectedPracticeLanguageIndex = flashcardLanguageIndex;
     } else {
@@ -97,7 +100,8 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
 
     if (match == null) {
       for (final phrase in phrases) {
-        final fromText = phrase.translations[_fromLanguage]?.toLowerCase() ?? '';
+        final fromText =
+            phrase.translations[_fromLanguage]?.toLowerCase() ?? '';
         if (fromText.contains(lowerQuery) || lowerQuery.contains(fromText)) {
           match = phrase;
           break;
@@ -112,7 +116,8 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
         _translateMessage = null;
       } else {
         _translateResult = null;
-        _translateMessage = 'No exact match found in the phrasebook. Try browsing categories instead.';
+        _translateMessage =
+            'No exact match found in the phrasebook. Try browsing categories instead.';
       }
     });
   }
@@ -145,7 +150,7 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
   void _playPronunciation(Phrase phrase, String language) {
     final pron = _pronunciationFor(phrase, language);
     final text = pron.isNotEmpty ? pron : _translationFor(phrase, language);
-    _audioService.playPronunciation(text, language);
+    _audioService.playPronunciation(phrase.phraseId, text, language);
   }
 
   @override
@@ -162,7 +167,10 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
           children: const [
             Text('SPEAKZED', style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 2),
-            Text('Regional Zambian Learning Hub', style: TextStyle(fontSize: 12)),
+            Text(
+              'Regional Zambian Learning Hub',
+              style: TextStyle(fontSize: 12),
+            ),
           ],
         ),
       ),
@@ -184,10 +192,7 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              children: [
-                _buildFlashcardsTab(),
-                _buildTranslateTab(),
-              ],
+              children: [_buildFlashcardsTab(), _buildTranslateTab()],
             ),
           ),
         ],
@@ -222,11 +227,24 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text('Flashcards Deck', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text(
+                'Flashcards Deck',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 4),
-              const Text('INTERACTIVE STUDY MODE', style: TextStyle(fontSize: 12, letterSpacing: 1.2, color: Colors.black54)),
+              const Text(
+                'INTERACTIVE STUDY MODE',
+                style: TextStyle(
+                  fontSize: 12,
+                  letterSpacing: 1.2,
+                  color: Colors.black54,
+                ),
+              ),
               const SizedBox(height: 12),
-              const Text('select your practice language, view the English phrase and click to flip and review translations.', style: TextStyle(color: Colors.black87)),
+              const Text(
+                'select your practice language, view the English phrase and click to flip and review translations.',
+                style: TextStyle(color: Colors.black87),
+              ),
               const SizedBox(height: 16),
               Wrap(
                 spacing: 8,
@@ -234,7 +252,12 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                   final name = _practiceLanguages[index];
                   final selected = index == _selectedPracticeLanguageIndex;
                   return ChoiceChip(
-                    label: Text(name, style: TextStyle(color: selected ? Colors.white : Colors.black87)),
+                    label: Text(
+                      name,
+                      style: TextStyle(
+                        color: selected ? Colors.white : Colors.black87,
+                      ),
+                    ),
                     selected: selected,
                     selectedColor: _darkGreen,
                     backgroundColor: Colors.white,
@@ -256,8 +279,17 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Translation($language)', style: const TextStyle(color: Colors.white70, fontWeight: FontWeight.w600)),
-                          Text('card ${_selectedCardIndex + 1} of ${phrases.length}', style: const TextStyle(color: Colors.white70)),
+                          Text(
+                            'Translation($language)',
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            'card ${_selectedCardIndex + 1} of ${phrases.length}',
+                            style: const TextStyle(color: Colors.white70),
+                          ),
                         ],
                       ),
                       const Spacer(),
@@ -271,9 +303,17 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                           },
                           child: Center(
                             child: Text(
-                              _cardFlipped ? translation : phrase.translations['English']?.toUpperCase() ?? '',
+                              _cardFlipped
+                                  ? translation
+                                  : phrase.translations['English']
+                                            ?.toUpperCase() ??
+                                        '',
                               textAlign: TextAlign.center,
-                              style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
@@ -287,11 +327,17 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                               color: Colors.green.shade700,
                               borderRadius: BorderRadius.circular(24.0),
                             ),
-                            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 12.0,
+                              horizontal: 16.0,
+                            ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                const Icon(Icons.play_arrow, color: Colors.white),
+                                const Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.white,
+                                ),
                                 const SizedBox(width: 8),
                                 Expanded(
                                   child: Text(
@@ -304,7 +350,11 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                           ),
                         ),
                         const SizedBox(height: 12),
-                        const Text('click card to return', textAlign: TextAlign.center, style: TextStyle(color: Colors.white70)),
+                        const Text(
+                          'click card to return',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white70),
+                        ),
                       ],
                       const Spacer(),
                     ],
@@ -320,14 +370,21 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                         backgroundColor: Colors.grey.shade300,
                         foregroundColor: Colors.black87,
                       ),
-                      onPressed: _selectedCardIndex > 0 ? () => _goToCard(_selectedCardIndex - 1, phrases.length) : null,
+                      onPressed: _selectedCardIndex > 0
+                          ? () => _goToCard(
+                              _selectedCardIndex - 1,
+                              phrases.length,
+                            )
+                          : null,
                       child: const Text('BACK'),
                     ),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(backgroundColor: _darkGreen),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: _darkGreen,
+                      ),
                       onPressed: () {
                         setState(() {
                           _cardFlipped = !_cardFlipped;
@@ -343,7 +400,12 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                         backgroundColor: Colors.grey.shade300,
                         foregroundColor: Colors.black87,
                       ),
-                      onPressed: _selectedCardIndex < phrases.length - 1 ? () => _goToCard(_selectedCardIndex + 1, phrases.length) : null,
+                      onPressed: _selectedCardIndex < phrases.length - 1
+                          ? () => _goToCard(
+                              _selectedCardIndex + 1,
+                              phrases.length,
+                            )
+                          : null,
                       child: const Text('NEXT'),
                     ),
                   ),
@@ -364,23 +426,35 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('Translate from', style: TextStyle(fontWeight: FontWeight.w600)),
+            const Text(
+              'Translate from',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
               children: _translateLanguages.map((lang) {
                 final selected = _fromLanguage == lang;
                 return ChoiceChip(
-                  label: Text(lang, style: TextStyle(color: selected ? Colors.white : Colors.black87)),
+                  label: Text(
+                    lang,
+                    style: TextStyle(
+                      color: selected ? Colors.white : Colors.black87,
+                    ),
+                  ),
                   selected: selected,
                   selectedColor: _darkGreen,
                   backgroundColor: Colors.white,
-                  labelStyle: TextStyle(color: selected ? Colors.white : Colors.black87),
+                  labelStyle: TextStyle(
+                    color: selected ? Colors.white : Colors.black87,
+                  ),
                   onSelected: (_) {
                     setState(() {
                       _fromLanguage = lang;
                       if (_fromLanguage == _toLanguage) {
-                        _toLanguage = _translateLanguages.firstWhere((item) => item != lang);
+                        _toLanguage = _translateLanguages.firstWhere(
+                          (item) => item != lang,
+                        );
                       }
                     });
                   },
@@ -388,18 +462,28 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
               }).toList(),
             ),
             const SizedBox(height: 16),
-            const Text('Translate to', style: TextStyle(fontWeight: FontWeight.w600)),
+            const Text(
+              'Translate to',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
               children: _translateLanguages.map((lang) {
                 final selected = _toLanguage == lang;
                 return ChoiceChip(
-                  label: Text(lang, style: TextStyle(color: selected ? Colors.white : Colors.black87)),
+                  label: Text(
+                    lang,
+                    style: TextStyle(
+                      color: selected ? Colors.white : Colors.black87,
+                    ),
+                  ),
                   selected: selected,
                   selectedColor: _darkGreen,
                   backgroundColor: Colors.white,
-                  labelStyle: TextStyle(color: selected ? Colors.white : Colors.black87),
+                  labelStyle: TextStyle(
+                    color: selected ? Colors.white : Colors.black87,
+                  ),
                   onSelected: (_) {
                     if (lang == _fromLanguage) return;
                     setState(() {
@@ -416,7 +500,10 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                 filled: true,
                 fillColor: Colors.white,
                 hintText: 'Type a phrase in $_fromLanguage',
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0), borderSide: BorderSide.none),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide.none,
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -427,8 +514,12 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
             ),
             const SizedBox(height: 16),
             if (_isSearching) const Center(child: CircularProgressIndicator()),
-            if (!_isSearching && _translateResult != null) _buildTranslationResult(),
-            if (!_isSearching && _translateResult == null && _translateMessage != null) _buildTranslateMessage(),
+            if (!_isSearching && _translateResult != null)
+              _buildTranslationResult(),
+            if (!_isSearching &&
+                _translateResult == null &&
+                _translateMessage != null)
+              _buildTranslateMessage(),
           ],
         ),
       ),
@@ -443,13 +534,22 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
 
     return Container(
       padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12.0)),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12.0),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(translation, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          Text(
+            translation,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 8),
-          Text('Phonetic: $pronunciation', style: const TextStyle(color: Colors.black54)),
+          Text(
+            'Phonetic: $pronunciation',
+            style: const TextStyle(color: Colors.black54),
+          ),
           const SizedBox(height: 16),
           Row(
             children: [
@@ -462,7 +562,10 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
                 onPressed: () {
                   _toggleFavorite(phrase);
                 },
-                icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border, color: _darkGreen),
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: _darkGreen,
+                ),
               ),
             ],
           ),
@@ -475,12 +578,19 @@ class _TranslateScreenState extends State<TranslateScreen> with TickerProviderSt
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(_translateMessage!, textAlign: TextAlign.center, style: const TextStyle(color: Colors.black54)),
+        Text(
+          _translateMessage!,
+          textAlign: TextAlign.center,
+          style: const TextStyle(color: Colors.black54),
+        ),
         const SizedBox(height: 12),
         if (_translateResult == null)
           TextButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => const PhrasebookScreen()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const PhrasebookScreen()),
+              );
             },
             child: const Text('Browse phrasebook'),
           ),
