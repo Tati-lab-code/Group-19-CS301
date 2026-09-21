@@ -197,7 +197,10 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
     );
 
     if (!mounted) return;
-    setState(() => _showRating = false);
+    setState(() {
+      _showRating = false;
+      _answerSubmitted = true;
+    });
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Pronunciation rating saved.')),
     );

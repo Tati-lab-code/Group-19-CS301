@@ -10,6 +10,7 @@ class QuizService {
   final Random _random = Random();
 
   Future<List<QuizQuestion>> generateQuiz(String category, String level) async {
+    final selectedLanguage = LanguagePreferenceService.getLanguage();
     final count = _questionCountForLevel(level);
     final phrases = category.toLowerCase() == 'all'
         ? await _phrasebookService.getAllPhrases()
@@ -32,10 +33,14 @@ class QuizService {
       final phrase = quizPhrases[i];
       if (i.isEven) {
         questions.add(
-          _buildMultipleChoiceQuestion(phrase, allEnglishTranslations),
+          _buildMultipleChoiceQuestion(
+            phrase,
+            allEnglishTranslations,
+            selectedLanguage,
+          ),
         );
       } else {
-        questions.add(_buildFreeRecallQuestion(phrase));
+        questions.add(_buildFreeRecallQuestion(phrase, selectedLanguage));
       }
     }
 
@@ -78,6 +83,7 @@ class QuizService {
   QuizQuestion _buildMultipleChoiceQuestion(
     Phrase phrase,
     List<String> allEnglishTranslations,
+    String selectedLanguage,
   ) {
     final correctAnswer = phrase.translations['English'] ?? '';
     final wrongOptions = allEnglishTranslations
@@ -95,15 +101,17 @@ class QuizService {
       phraseId: phrase.phraseId,
       type: QuestionType.multipleChoice,
       questionText:
-          "What does '${phrase.translations['Bemba'] ?? ''}' mean in English?",
+          "What does '${phrase.translations[selectedLanguage] ?? ''}' mean in English?",
       options: options,
       correctAnswer: correctAnswer,
-      hint: phrase.getPronunciation('Bemba'),
+      hint: phrase.getPronunciation(selectedLanguage),
     );
   }
 
-  QuizQuestion _buildFreeRecallQuestion(Phrase phrase) {
-    final selectedLanguage = LanguagePreferenceService.getLanguage();
+  QuizQuestion _buildFreeRecallQuestion(
+    Phrase phrase,
+    String selectedLanguage,
+  ) {
     final correctAnswer = phrase.translations[selectedLanguage] ?? '';
 
     return QuizQuestion(
