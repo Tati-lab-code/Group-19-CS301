@@ -30,7 +30,8 @@ class QuizQuestionScreen extends StatefulWidget {
   State<QuizQuestionScreen> createState() => _QuizQuestionScreenState();
 }
 
-class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
+class _QuizQuestionScreenState extends State<QuizQuestionScreen>
+  with WidgetsBindingObserver {
   static const Color _darkGreen = Color(0xFF1B4D2E);
   static const Color _lightGrey = Color(0xFFF2F3F5);
 
@@ -38,6 +39,7 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   final TextEditingController _answerController = TextEditingController();
   final AudioRecorder _recorder = AudioRecorder();
   final AudioPlayer _recordingPlayer = AudioPlayer();
+  final AudioService _audioService = AudioService();
 
   int _currentIndex = 0;
   double _score = 0;
@@ -48,7 +50,10 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   bool _isComparing = false;
   bool _showRating = false;
   bool _isStoppingRecording = false;
+  bool _isRatingSaving = false;
   Timer? _recordingTimer;
+  String? _recordingPath;
+  DateTime? _recordingStartedAt;
 
   // Free-recall specific: tracks whether the typed answer was correct,
   // once submitted, so we can show feedback before advancing.
@@ -59,10 +64,27 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   QuizQuestion get _currentQuestion => widget.questions[_currentIndex];
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive) {
+      unawaited(_resetRecordingSession());
+    }
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _recordingTimer?.cancel();
+    unawaited(_resetRecordingSession());
     _recorder.dispose();
     _recordingPlayer.dispose();
+    unawaited(_audioService.dispose());
     _answerController.dispose();
     super.dispose();
   }
@@ -83,7 +105,9 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Microphone permission is required to record.'),
+              content: Text(
+                'Enable microphone access in Settings > Apps > SpeakZed > Permissions.',
+              ),
             ),
           );
         }
@@ -93,12 +117,18 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
       final temporaryDirectory = await getTemporaryDirectory();
       final recordingPath =
           '${temporaryDirectory.path}/speakzed_${DateTime.now().microsecondsSinceEpoch}.m4a';
+        _recordingPath = recordingPath;
+        _recordingStartedAt = DateTime.now();
       await _recorder.start(
         const RecordConfig(encoder: AudioEncoder.aacLc),
         path: recordingPath,
       );
 
-      if (!mounted) return;
+      if (!mounted) {
+        await _recorder.stop();
+        await _deleteRecordingFile(recordingPath);
+        return;
+      }
       setState(() => _isRecording = true);
       _recordingTimer = Timer(const Duration(seconds: 6), () {
         if (_isRecording) _stopRecording();
@@ -119,11 +149,31 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
 
     try {
       final recordingPath = await _recorder.stop();
-      if (mounted) setState(() => _isRecording = false);
-      if (recordingPath != null && mounted) {
-        await _playComparison(recordingPath);
+      if (!mounted) return;
+      setState(() => _isRecording = false);
+      final path = recordingPath ?? _recordingPath;
+      _recordingPath = null;
+      final startedAt = _recordingStartedAt;
+      _recordingStartedAt = null;
+      if (path == null) return;
+      final duration = startedAt == null
+          ? null
+          : DateTime.now().difference(startedAt);
+      if (duration != null && duration < const Duration(milliseconds: 500)) {
+        await _deleteRecordingFile(path);
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Recording too short, please try again'),
+          ),
+        );
+        return;
       }
+      await _playComparison(path);
     } catch (_) {
+      if (!mounted) return;
+      _recordingPath = null;
+      _recordingStartedAt = null;
       if (mounted) {
         setState(() => _isRecording = false);
         ScaffoldMessenger.of(context).showSnackBar(
@@ -147,7 +197,7 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
 
       final language = LanguagePreferenceService.getLanguage();
       final nativeText = _currentQuestion.correctAnswer;
-      await AudioService().playPronunciation(
+      await _audioService.playPronunciation(
         _currentQuestion.phraseId,
         nativeText,
         language,
@@ -162,11 +212,7 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
         );
       }
     } finally {
-      try {
-        await File(recordingPath).delete();
-      } catch (_) {
-        // The temporary file is best-effort cleanup only.
-      }
+      await _deleteRecordingFile(recordingPath);
       if (mounted) {
         setState(() {
           _isComparing = false;
@@ -176,9 +222,48 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
     }
   }
 
+  Future<void> _deleteRecordingFile(String path) async {
+    try {
+      await File(path).delete();
+    } catch (_) {
+      // Temporary-file cleanup is best effort.
+    }
+  }
+
+  Future<void> _resetRecordingSession() async {
+    _recordingTimer?.cancel();
+    _recordingTimer = null;
+    String? recordingPath = _recordingPath;
+
+    try {
+      if (_isRecording || _isStoppingRecording) {
+        recordingPath ??= await _recorder.stop();
+      }
+    } catch (_) {}
+
+    await _recordingPlayer.stop();
+    await _audioService.stop();
+    if (recordingPath != null) {
+      await _deleteRecordingFile(recordingPath);
+    }
+    _recordingPath = null;
+    _recordingStartedAt = null;
+    _isStoppingRecording = false;
+
+    if (!mounted) return;
+    setState(() {
+      _isRecording = false;
+      _isComparing = false;
+      _showRating = false;
+    });
+  }
+
   Future<void> _saveRating(int rating) async {
+    if (_isRatingSaving || _speechRating != null || !_showRating) return;
+    setState(() => _isRatingSaving = true);
     final username = AuthService.getCurrentUser();
     if (username == null || username.isEmpty) {
+      _isRatingSaving = false;
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -189,24 +274,33 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
       return;
     }
 
-    final language = LanguagePreferenceService.getLanguage();
-    await PronunciationRatingService.saveRating(
-      username: username,
-      phraseId: _currentQuestion.phraseId,
-      language: language,
-      rating: rating,
-    );
+    try {
+      final language = LanguagePreferenceService.getLanguage();
+      await PronunciationRatingService.saveRating(
+        username: username,
+        phraseId: _currentQuestion.phraseId,
+        language: language,
+        rating: rating,
+      );
 
-    if (!mounted) return;
-    setState(() {
-      _showRating = false;
-      _answerSubmitted = true;
-      _speechRating = rating;
-      _score += rating == 2 ? 1.0 : rating == 1 ? 0.5 : 0.0;
-    });
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Pronunciation rating saved.')),
-    );
+      if (!mounted) return;
+      setState(() {
+        _showRating = false;
+        _answerSubmitted = true;
+        _speechRating = rating;
+        _score += rating == 2 ? 1.0 : rating == 1 ? 0.5 : 0.0;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Pronunciation rating saved.')),
+      );
+    } catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Unable to save pronunciation rating.')),
+      );
+    } finally {
+      _isRatingSaving = false;
+    }
   }
 
   void _selectOption(String option) {
@@ -245,7 +339,9 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
     });
   }
 
-  void _advance() {
+  Future<void> _advance() async {
+    await _resetRecordingSession();
+    if (!mounted) return;
     if (_isLastQuestion) {
       Navigator.pushReplacement(
         context,
@@ -267,18 +363,19 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
       _answerSubmitted = false;
       _freeRecallCorrect = null;
       _speechRating = null;
+      _isRatingSaving = false;
       _answerController.clear();
       _showHint = false;
       _showRating = false;
     });
   }
 
-  void _onActionButtonPressed() {
+  Future<void> _onActionButtonPressed() async {
     if (_currentQuestion.type == QuestionType.freeRecall && !_answerSubmitted) {
       _submitFreeRecall();
       return;
     }
-    _advance();
+    await _advance();
   }
 
   bool get _actionEnabled {
@@ -298,7 +395,6 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   }
 
   void _handleBack() {
-    final rootContext = context;
     showDialog<void>(
       context: context,
       builder: (dialogContext) {
@@ -313,9 +409,11 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
               child: const Text('Cancel'),
             ),
             TextButton(
-              onPressed: () {
+              onPressed: () async {
                 Navigator.pop(dialogContext);
-                Navigator.pop(rootContext);
+                await _resetRecordingSession();
+                if (!mounted) return;
+                Navigator.pop(context);
               },
               child: const Text('Leave'),
             ),
@@ -728,7 +826,9 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   Widget _ratingButton(int rating, IconData icon, Color color) {
     return IconButton(
       tooltip: ['Needs work', 'Almost there', 'Sounds good'][rating],
-      onPressed: () => _saveRating(rating),
+        onPressed: _isRatingSaving || _speechRating != null
+          ? null
+          : () => _saveRating(rating),
       icon: Icon(icon, color: color, size: 32),
     );
   }

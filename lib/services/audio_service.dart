@@ -5,6 +5,16 @@ class AudioService {
   final AudioPlayer _audioPlayer = AudioPlayer();
   final FlutterTts _flutterTts = FlutterTts();
 
+  Future<void> stop() async {
+    await _audioPlayer.stop();
+    await _flutterTts.stop();
+  }
+
+  Future<void> dispose() async {
+    await stop();
+    await _audioPlayer.dispose();
+  }
+
   Future<void> playPronunciation(
     String phraseId,
     String text,
