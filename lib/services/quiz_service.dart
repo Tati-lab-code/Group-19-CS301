@@ -62,7 +62,7 @@ class QuizService {
     return normalize(userAnswer) == normalize(question.correctAnswer);
   }
 
-  double calculateScore(int correctCount, int totalCount) {
+  double calculateScore(double correctCount, int totalCount) {
     if (totalCount <= 0) return 0.0;
     return (correctCount / totalCount) * 100.0;
   }

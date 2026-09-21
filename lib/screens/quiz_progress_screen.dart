@@ -80,7 +80,7 @@ class _QuizProgressScreenState extends State<QuizProgressScreen> {
                           final attempt = _attempts[index];
                           final category = attempt['category'] as String? ?? 'All';
                           final level = attempt['level'] as String? ?? 'Beginner';
-                          final score = attempt['score'] as int? ?? 0;
+                          final score = (attempt['score'] as num?)?.toDouble() ?? 0.0;
                           final total = attempt['total'] as int? ?? 0;
                           final percent = total > 0 ? (score / total * 100).round() : 0;
                           final date = _formatDate(attempt['date'] as String? ?? '');
@@ -122,7 +122,10 @@ class _QuizProgressScreenState extends State<QuizProgressScreen> {
                                 const SizedBox(height: 8),
                                 Text('Level: $level'),
                                 const SizedBox(height: 8),
-                                Text('$score/$total correct', style: const TextStyle(color: Colors.black54)),
+                                Text(
+                                  '${score == score.roundToDouble() ? score.toStringAsFixed(0) : score.toStringAsFixed(1)}/$total correct',
+                                  style: const TextStyle(color: Colors.black54),
+                                ),
                                 const SizedBox(height: 8),
                                 Text(date, style: const TextStyle(color: Colors.black45, fontSize: 12)),
                               ],

@@ -4,7 +4,6 @@ import 'screens/favorites_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/phrasebook_screen.dart';
 import 'screens/search_screen.dart';
-import 'screens/sign_in_screen.dart';
 import 'screens/welcome_screen.dart';
 import 'services/favorites_service.dart';
 import 'services/quiz_progress_service.dart';

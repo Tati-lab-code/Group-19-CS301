@@ -40,7 +40,7 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   final AudioPlayer _recordingPlayer = AudioPlayer();
 
   int _currentIndex = 0;
-  int _score = 0;
+  double _score = 0;
   String? _selectedOption;
   bool _answerSubmitted = false;
   bool _showHint = false;
@@ -53,6 +53,7 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   // Free-recall specific: tracks whether the typed answer was correct,
   // once submitted, so we can show feedback before advancing.
   bool? _freeRecallCorrect;
+  int? _speechRating;
 
   bool get _isLastQuestion => _currentIndex == widget.questions.length - 1;
   QuizQuestion get _currentQuestion => widget.questions[_currentIndex];
@@ -200,6 +201,8 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
     setState(() {
       _showRating = false;
       _answerSubmitted = true;
+      _speechRating = rating;
+      _score += rating == 2 ? 1.0 : rating == 1 ? 0.5 : 0.0;
     });
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Pronunciation rating saved.')),
@@ -263,6 +266,7 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
       _selectedOption = null;
       _answerSubmitted = false;
       _freeRecallCorrect = null;
+      _speechRating = null;
       _answerController.clear();
       _showHint = false;
       _showRating = false;
@@ -544,6 +548,22 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
   Widget _buildFreeRecallInput() {
     final locked = _answerSubmitted;
     final isCorrect = _freeRecallCorrect == true;
+      final isSpeechFullCredit = _speechRating == 2;
+      final isSpeechPartialCredit = _speechRating == 1;
+      final feedbackColor = _speechRating != null
+      ? (isSpeechFullCredit
+        ? Colors.green.shade50
+        : isSpeechPartialCredit
+        ? Colors.orange.shade50
+        : Colors.red.shade50)
+      : (isCorrect ? Colors.green.shade50 : Colors.red.shade50);
+      final feedbackBorderColor = _speechRating != null
+      ? (isSpeechFullCredit
+        ? _darkGreen
+        : isSpeechPartialCredit
+        ? Colors.orange.shade700
+        : Colors.red.shade200)
+      : (isCorrect ? _darkGreen : Colors.red.shade200);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -552,12 +572,12 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           decoration: BoxDecoration(
             color: locked
-                ? (isCorrect ? Colors.green.shade50 : Colors.red.shade50)
+              ? feedbackColor
                 : Colors.white,
             borderRadius: BorderRadius.circular(16.0),
             border: Border.all(
               color: locked
-                  ? (isCorrect ? _darkGreen : Colors.red.shade200)
+                  ? feedbackBorderColor
                   : Colors.grey.shade300,
               width: locked ? 2 : 1,
             ),
@@ -621,7 +641,9 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
                 style: const TextStyle(color: Colors.black54),
               ),
             ),
-        ] else
+        ] else if (_speechRating != null)
+          _buildSpeechFeedback()
+        else
           // Feedback shown after the answer is checked.
           Row(
             children: [
@@ -643,6 +665,42 @@ class _QuizQuestionScreenState extends State<QuizQuestionScreen> {
               ),
             ],
           ),
+      ],
+    );
+  }
+
+  Widget _buildSpeechFeedback() {
+    final rating = _speechRating!;
+    final isFullCredit = rating == 2;
+    final isPartialCredit = rating == 1;
+    final color = isFullCredit
+        ? _darkGreen
+        : isPartialCredit
+        ? Colors.orange.shade800
+        : Colors.red;
+    final message = isFullCredit
+        ? 'Correct!'
+        : isPartialCredit
+        ? 'Partial credit — getting there!'
+        : 'Not quite — keep practicing';
+
+    return Row(
+      children: [
+        Icon(
+          isFullCredit
+              ? Icons.check_circle
+              : isPartialCredit
+              ? Icons.circle
+              : Icons.cancel,
+          color: color,
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            message,
+            style: TextStyle(color: color, fontWeight: FontWeight.bold),
+          ),
+        ),
       ],
     );
   }

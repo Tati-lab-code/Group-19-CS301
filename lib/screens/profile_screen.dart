@@ -37,7 +37,10 @@ class ProfileScreen extends StatelessWidget {
 
     final attempts = QuizProgressService.getAllAttempts();
     final lessons = attempts.length;
-    final points = attempts.fold<int>(0, (sum, a) => sum + (a['score'] as int? ?? 0)) * 10;
+    final points = attempts.fold<double>(
+      0.0,
+      (sum, attempt) => sum + ((attempt['score'] as num?)?.toDouble() ?? 0.0),
+    ) * 10;
     final distinctDays = <String>{};
     for (final a in attempts) {
       final dateStr = a['date'] as String? ?? '';
@@ -87,7 +90,14 @@ class ProfileScreen extends StatelessWidget {
                       const SizedBox(width: 8),
                       Expanded(child: _statBox(daysStreak.toString(), 'Days streak')),
                       const SizedBox(width: 8),
-                      Expanded(child: _statBox(points.toString(), 'Points')),
+                      Expanded(
+                        child: _statBox(
+                          points == points.roundToDouble()
+                              ? points.toStringAsFixed(0)
+                              : points.toStringAsFixed(1),
+                          'Points',
+                        ),
+                      ),
                     ],
                   ),
                 ],

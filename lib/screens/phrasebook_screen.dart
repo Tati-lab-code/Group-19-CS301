@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/app_bottom_nav.dart';
-import '../services/auth_service.dart';
 import 'profile_screen.dart';
 import '../services/phrasebook_service.dart';
 import 'category_screen.dart';

@@ -17,7 +17,7 @@ class QuizProgressService {
   static Future<void> saveAttempt({
     required String category,
     required String level,
-    required int score,
+    required double score,
     required int total,
   }) async {
     final attempt = {
@@ -52,7 +52,7 @@ class QuizProgressService {
     if (attempts.isEmpty) return 0.0;
 
     final totalPercent = attempts.fold<double>(0.0, (sum, attempt) {
-      final score = attempt['score'] as int? ?? 0;
+      final score = (attempt['score'] as num?)?.toDouble() ?? 0.0;
       final total = attempt['total'] as int? ?? 0;
       return total > 0 ? sum + (score / total * 100.0) : sum;
     });
@@ -66,7 +66,7 @@ class QuizProgressService {
     if (attempts.isEmpty) return 0;
 
     final best = attempts.map<int>((attempt) {
-      final score = attempt['score'] as int? ?? 0;
+      final score = (attempt['score'] as num?)?.toDouble() ?? 0.0;
       final total = attempt['total'] as int? ?? 0;
       return total > 0 ? (score / total * 100).round() : 0;
     }).fold<int>(0, (maxValue, scorePercent) => scorePercent > maxValue ? scorePercent : maxValue);

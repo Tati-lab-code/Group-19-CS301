@@ -6,7 +6,7 @@ import 'home_screen.dart';
 import 'quiz_setup_screen.dart';
 
 class QuizResultsScreen extends StatefulWidget {
-  final int correctCount;
+  final double correctCount;
   final int totalCount;
   final String category;
   final String level;
@@ -50,6 +50,9 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
     final percentage = QuizService()
         .calculateScore(widget.correctCount, widget.totalCount)
         .round();
+    final scoreText = widget.correctCount == widget.correctCount.roundToDouble()
+      ? widget.correctCount.toStringAsFixed(0)
+      : widget.correctCount.toStringAsFixed(1);
     final feedback = getFeedbackMessage(percentage);
 
     return Scaffold(
@@ -108,7 +111,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               ),
               const SizedBox(height: 12),
               Text(
-                '${widget.correctCount} out of ${widget.totalCount} correct',
+                '$scoreText out of ${widget.totalCount} correct',
                 textAlign: TextAlign.center,
                 style: const TextStyle(fontSize: 16, color: Colors.black54),
               ),

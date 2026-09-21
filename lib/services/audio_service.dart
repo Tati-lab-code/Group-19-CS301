@@ -18,7 +18,7 @@ class AudioService {
     }
 
     try {
-      final extension = language.toLowerCase() == 'bemba' ? 'mp3' : 'm4a';
+      final extension = 'm4a';
       await _audioPlayer.play(
         AssetSource('audio/${phraseId}_$language.$extension'),
       );

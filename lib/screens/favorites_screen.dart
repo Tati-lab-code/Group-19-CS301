@@ -5,7 +5,6 @@ import '../services/phrasebook_service.dart';
 import '../services/favorites_service.dart';
 import '../services/language_preference_service.dart';
 import '../widgets/app_bottom_nav.dart';
-import '../services/auth_service.dart';
 import 'profile_screen.dart';
 import '../widgets/phrase_card.dart';
 
